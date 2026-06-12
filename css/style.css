@@ -1662,12 +1662,13 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
 }
 
 /* ============================================
-   RESPONSIVE — TABLET
+   RESPONSIVE — TABLET (768–1023px)
    ============================================ */
-@media (max-width: 920px) {
+@media (max-width: 1023px) {
   :root { --gap-section: 88px; }
 
   .hdr__nav { display: none; }
+  .btn--hdr { display: none; }
   .hdr__burger { display: flex; }
   .hdr__nav.open {
     display: flex;
@@ -1687,15 +1688,15 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
 
   .hero__inner {
     grid-template-columns: 1fr;
-    gap: 52px;
+    gap: 48px;
   }
-  .hero__title { font-size: 2.1rem; }
+  .hero__title { font-size: 2.05rem; }
   .hero__visual { height: 340px; }
 
   .prob__grid  { grid-template-columns: repeat(2, 1fr); }
   .supp__grid  { grid-template-columns: 1fr; }
   .str__grid   { grid-template-columns: 1fr; }
-  .svc__grid   { grid-template-columns: 1fr; }
+  .svc__grid   { grid-template-columns: repeat(2, 1fr); }
   .col-sec__grid { grid-template-columns: repeat(2, 1fr); }
 
   .prof__inner { flex-direction: column; align-items: center; padding: 44px; text-align: center; }
@@ -1724,47 +1725,99 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
 }
 
 /* ============================================
-   RESPONSIVE — MOBILE
+   RESPONSIVE — MOBILE (≤767px)
+   スマホでは装飾より「誰に・何を・CTA」を優先
    ============================================ */
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   :root { --gap-section: 64px; }
 
   .container { padding: 0 20px; }
 
-  .hvc--formula { width: 200px; padding: 18px; }
-  .hvc--bottle  { right: 4px; top: 30px; padding: 22px 18px; }
-  .bottle__body { width: 56px; height: 104px; }
-  .hvc--sns     { bottom: 8px; left: 10px; width: 185px; }
-  .hvc--tag     { display: none; }
-  .hero__visual { height: 280px; }
-  .hero__title  { font-size: 1.6rem; }
-  .hero__sub    { font-size: .87rem; }
-  .hero__cta    { flex-direction: column; }
-  .hero__cta .btn { width: 100%; }
+  /* ファーストビューを短く：装飾ビジュアル・円・Scrollを非表示 */
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--hdr-h) + 36px);
+    padding-bottom: 52px;
+  }
+  .hero::before, .hero::after { display: none; }
+  .hero__deco-line { display: none; }
+  .hero__visual { display: none; }
+  .hero__scroll { display: none; }
+  .hero__inner { gap: 0; padding: 0 20px; }
+  .hero__label { font-size: .7rem; margin-bottom: 18px; letter-spacing: .12em; }
+  .hero__title { font-size: 1.6rem; line-height: 1.5; margin-bottom: 22px; }
+  .hero__sub {
+    font-size: .86rem;
+    line-height: 1.95;
+    margin-bottom: 28px;
+    padding-left: 14px;
+  }
+  .hero__cta { flex-direction: column; gap: 12px; margin-bottom: 0; }
+  .hero__cta .btn { width: 100%; padding: 16px 24px; }
 
-  .hook         { padding: 72px 0; }
-  .hook__title  { font-size: 1.22rem; }
-  .hook__desc   { font-size: .88rem; line-height: 2; }
+  .hook         { padding: 56px 0; }
+  .hook__title  { font-size: 1.2rem; line-height: 1.7; }
+  .hook__desc   { font-size: .87rem; line-height: 1.95; }
   .hook__desc br { display: none; }
 
   .sec-title    { font-size: 1.35rem; }
-  .prob__grid   { grid-template-columns: 1fr; }
+
+  .prob__grid   { grid-template-columns: 1fr; gap: 12px; }
+  .prob__card   { padding: 20px 22px; }
+  .svc__grid    { grid-template-columns: 1fr; gap: 16px; }
+  .svc__card    { padding: 30px 24px; }
+  .svc__lead    { margin: -8px 0 36px; }
   .col-sec__grid { grid-template-columns: 1fr; }
-  .svc__card    { padding: 32px 24px; }
+
+  /* 実績KPIはプロフィール内でコンパクトに（横並び・1行） */
   .prof__inner  { padding: 28px 20px; }
-  .prof__av     { width: 130px; height: 130px; }
+  .prof__av     { width: 120px; height: 120px; }
+  .prof__kpi    { flex-direction: column; gap: 14px; text-align: left; }
+  .prof__kpi-item {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .prof__kpi-num { font-size: .98rem; flex-shrink: 0; }
+  .prof__kpi-lbl { text-align: right; }
+
   .str__note    { padding: 28px 24px; }
-  .prob__close  { padding: 32px 28px; }
-  .prob__close p { font-size: .95rem; }
+  .prob__close  { padding: 30px 26px; }
+  .prob__close p { font-size: .92rem; }
 
   .ftr__inner   { flex-direction: column; gap: 32px; }
   .ftr__nav ul  { align-items: flex-start; flex-direction: row; flex-wrap: wrap; gap: 10px 20px; }
 
-  .float-cta {
-    bottom: 16px; right: 16px; left: 16px;
-    text-align: center; border-radius: 6px;
-  }
   .form-wrap { padding: 24px 18px; }
+
+  /* 画面下部に固定CTA（フルワイドのバー） */
+  .float-cta {
+    bottom: 0; right: 0; left: 0;
+    text-align: center;
+    border-radius: 0;
+    padding: 16px;
+    font-size: .92rem;
+    letter-spacing: .06em;
+    box-shadow: 0 -4px 20px rgba(92,68,56,.18);
+  }
+}
+
+/* ============================================
+   RESPONSIVE — SMALL MOBILE (≤480px)
+   ============================================ */
+@media (max-width: 480px) {
+  :root { --gap-section: 56px; }
+
+  .container { padding: 0 16px; }
+  .hero__inner { padding: 0 16px; }
+  .hero__title { font-size: 1.46rem; }
+  .hero__sub   { font-size: .84rem; }
+  .sec-title   { font-size: 1.24rem; }
+  .hook__title { font-size: 1.1rem; }
+  .svc__card   { padding: 26px 20px; }
+  .prof__inner { padding: 24px 16px; }
+  .form-wrap   { padding: 22px 16px; }
 }
 
 /* ============================================
@@ -1932,11 +1985,13 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
 
 /* ============================================
    RESPONSIVE for new sections
+   （これらは基本定義の後に置く必要がある＝ソース順の都合）
    ============================================ */
-@media (max-width: 920px) {
+@media (max-width: 1023px) {
+  .rec__list   { grid-template-columns: repeat(2, 1fr); }
   .deliv__grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .rec__list   { grid-template-columns: 1fr; }
   .deliv__grid { grid-template-columns: 1fr; }
   .ba__row {
