@@ -122,14 +122,17 @@ function syncNav() {
 window.addEventListener('scroll', syncNav, { passive: true });
 
 /* ============================================
-   CONTACT FORM mock submit
+   CONTACT FORM — Formspree submission
    ============================================ */
-const form   = document.getElementById('contactForm');
-const thanks = document.getElementById('contactThanks');
+const form      = document.getElementById('contactForm');
+const thanks    = document.getElementById('contactThanks');
+const formError = document.getElementById('formError');
+const submitBtn = document.getElementById('submitBtn');
 
 if (form) {
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
+
     const name    = form.querySelector('#name').value.trim();
     const email   = form.querySelector('#email').value.trim();
     const message = form.querySelector('#message').value.trim();
@@ -142,8 +145,30 @@ if (form) {
       alert('正しいメールアドレスをご入力ください。');
       return;
     }
-    form.style.display = 'none';
-    thanks.style.display = 'block';
-    thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中...';
+    formError.style.display = 'none';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        thanks.style.display = 'block';
+        thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error('server error');
+      }
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '相談内容を送信する';
+      formError.style.display = 'block';
+      formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
   });
 }

@@ -685,7 +685,9 @@
             商品企画、OEM相談前の整理、既存商品の訴求改善、SNS販売導線まで。<br>
             現在のフェーズに合わせて、必要な支援をご提案します。
           </p>
-          <form class="form-wrap reveal" id="contactForm" novalidate>
+          <form class="form-wrap reveal" id="contactForm"
+                action="https://formspree.io/f/mbdezpye"
+                method="POST">
             <div class="form__row">
               <div class="form__grp">
                 <label class="form__lbl" for="name">お名前 <span class="form__req">必須</span></label>
@@ -709,22 +711,22 @@
               <div class="form__sel-wrap">
                 <select class="form__sel" id="phase" name="phase">
                   <option value="">選択してください</option>
-                  <option value="startup">これから立ち上げ</option>
-                  <option value="pre-oem">OEM相談前</option>
-                  <option value="developing">開発中</option>
-                  <option value="existing">既存商品の改善</option>
-                  <option value="sns">SNS・訴求改善</option>
+                  <option value="これから立ち上げ">これから立ち上げ</option>
+                  <option value="OEM相談前">OEM相談前</option>
+                  <option value="開発中">開発中</option>
+                  <option value="既存商品の改善">既存商品の改善</option>
+                  <option value="SNS・訴求改善">SNS・訴求改善</option>
                 </select>
               </div>
             </div>
             <div class="form__grp">
               <span class="form__lbl">希望する支援内容（複数選択可）</span>
               <div class="form__checks">
-                <label class="form__check"><input type="checkbox" name="support" value="商品企画">商品企画</label>
-                <label class="form__check"><input type="checkbox" name="support" value="OEM相談前整理">OEM相談前の整理</label>
-                <label class="form__check"><input type="checkbox" name="support" value="既存商品の訴求改善">既存商品の訴求改善</label>
-                <label class="form__check"><input type="checkbox" name="support" value="SNS販売導線">SNS販売導線</label>
-                <label class="form__check"><input type="checkbox" name="support" value="その他">その他</label>
+                <label class="form__check"><input type="checkbox" name="support_type" value="商品企画">商品企画</label>
+                <label class="form__check"><input type="checkbox" name="support_type" value="OEM相談前の整理">OEM相談前の整理</label>
+                <label class="form__check"><input type="checkbox" name="support_type" value="既存商品の訴求改善">既存商品の訴求改善</label>
+                <label class="form__check"><input type="checkbox" name="support_type" value="SNS販売導線">SNS販売導線</label>
+                <label class="form__check"><input type="checkbox" name="support_type" value="その他">その他</label>
               </div>
             </div>
             <div class="form__grp">
@@ -732,14 +734,15 @@
               <textarea class="form__ta" id="message" name="message" rows="6" placeholder="例：スキンケアブランドの立ち上げを考えています。ターゲット設定やコンセプト設計から相談したいです。" required></textarea>
             </div>
             <div class="form__submit">
-              <button type="submit" class="btn btn--primary btn--lg btn--full">相談内容を送信する</button>
+              <button type="submit" class="btn btn--primary btn--lg btn--full" id="submitBtn">相談内容を送信する</button>
               <p class="form__note">内容を確認のうえ、通常2〜3営業日以内にご返信いたします。</p>
             </div>
+            <p class="form__error" id="formError" style="display:none;">送信に失敗しました。時間をおいて再度お試しいただくか、Instagram DMにてご連絡ください。</p>
           </form>
           <div class="thanks" id="contactThanks" style="display:none;">
             <div class="thanks__ic">✓</div>
             <h3>お問い合わせありがとうございます</h3>
-            <p>内容を確認のうえ、2〜3営業日以内にご連絡いたします。</p>
+            <p>内容を確認のうえ、通常2〜3営業日以内にご返信いたします。</p>
           </div>
         </div>
       </div>

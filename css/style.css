@@ -1527,6 +1527,17 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   text-align: center;
   letter-spacing: .04em;
 }
+.form__error {
+  margin-top: 16px;
+  padding: 14px 20px;
+  background: #FFF0F0;
+  border: 1px solid #F5C0C0;
+  border-radius: 4px;
+  font-size: .84rem;
+  color: #C0404A;
+  text-align: center;
+  line-height: 1.75;
+}
 .thanks {
   text-align: center;
   padding: 72px 40px;
