@@ -422,56 +422,6 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   flex-wrap: wrap;
 }
 
-.hero__kpi {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  background: rgba(255,255,255,.75);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(92,68,56,.07);
-}
-.hero__kpi-item {
-  padding: 18px 10px;
-  text-align: center;
-  border-right: 1px solid var(--color-border);
-  position: relative;
-}
-.hero__kpi-item:last-child { border-right: none; }
-.hero__kpi-item::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-main), var(--color-gold));
-  transform: scaleX(0);
-  transition: transform .4s ease;
-}
-.hero__kpi-item:hover::before { transform: scaleX(1); }
-.hero__kpi-num {
-  display: block;
-  font-family: var(--font-jp);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--color-accent);
-  line-height: 1.2;
-  margin-bottom: 5px;
-  white-space: nowrap;
-}
-.hero__kpi-num sub {
-  font-size: .62em;
-  font-weight: 400;
-  vertical-align: baseline;
-}
-.hero__kpi-lbl {
-  display: block;
-  font-size: .62rem;
-  color: var(--color-text-lt);
-  letter-spacing: .04em;
-  line-height: 1.45;
-}
-
 /* scroll indicator */
 .hero__scroll {
   position: absolute;
@@ -724,6 +674,42 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
 .concept-tag__dot--rose { background: var(--color-main); }
 .concept-tag__dot--gold { background: var(--color-gold); }
 .concept-tag__dot--brown { background: var(--color-accent); }
+
+/* ============================================
+   HOOK（課題提起）
+   ============================================ */
+.hook {
+  background: linear-gradient(180deg, var(--color-base-2) 0%, var(--color-base) 100%);
+  padding: 96px 0;
+  text-align: center;
+  position: relative;
+}
+.hook::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 1px; height: 48px;
+  background: linear-gradient(180deg, var(--color-main), transparent);
+}
+.hook__title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: .05em;
+  color: var(--color-text);
+  margin-bottom: 28px;
+}
+.hook__em {
+  background: linear-gradient(transparent 62%, var(--color-sub) 62%);
+  padding: 0 2px;
+}
+.hook__desc {
+  font-size: .98rem;
+  line-height: 2.2;
+  color: var(--color-text-md);
+  letter-spacing: .04em;
+}
 
 /* ============================================
    PROBLEM
@@ -985,6 +971,18 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
    ============================================ */
 .svc {
   background: var(--color-base);
+}
+.svc__lead {
+  text-align: center;
+  font-size: .95rem;
+  line-height: 2.1;
+  color: var(--color-text-md);
+  letter-spacing: .03em;
+  margin: -20px 0 52px;
+}
+.svc__cta {
+  text-align: center;
+  margin-top: 44px;
 }
 .svc__grid {
   display: grid;
@@ -1682,7 +1680,6 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   }
   .hero__title { font-size: 2.1rem; }
   .hero__visual { height: 340px; }
-  .hero__kpi { grid-template-columns: repeat(3, 1fr); }
 
   .prob__grid  { grid-template-columns: repeat(2, 1fr); }
   .supp__grid  { grid-template-columns: 1fr; }
@@ -1733,20 +1730,11 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   .hero__sub    { font-size: .87rem; }
   .hero__cta    { flex-direction: column; }
   .hero__cta .btn { width: 100%; }
-  .hero__kpi    { grid-template-columns: 1fr; }
-  .hero__kpi-item {
-    border-right: none;
-    border-bottom: 1px solid var(--color-border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    padding: 14px 18px;
-  }
-  .hero__kpi-item:last-child { border-bottom: none; }
-  .hero__kpi-num { margin-bottom: 0; }
-  .hero__kpi-lbl { text-align: right; }
-  .hero__kpi-lbl br { display: none; }
+
+  .hook         { padding: 72px 0; }
+  .hook__title  { font-size: 1.22rem; }
+  .hook__desc   { font-size: .88rem; line-height: 2; }
+  .hook__desc br { display: none; }
 
   .sec-title    { font-size: 1.35rem; }
   .prob__grid   { grid-template-columns: 1fr; }
