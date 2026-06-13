@@ -2183,6 +2183,56 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   font-weight: 700;
   color: var(--color-text);
 }
+.art-body > h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent2);
+  letter-spacing: .04em;
+  margin: 32px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.art-body > h3::before {
+  content: '';
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-main), var(--color-accent));
+  flex-shrink: 0;
+}
+.art-body ol {
+  margin: 0 0 1.6em 0;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: art-ol;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.art-body ol li {
+  font-size: .93rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  padding-left: 32px;
+  position: relative;
+  counter-increment: art-ol;
+  font-weight: 500;
+}
+.art-body ol li::before {
+  content: counter(art-ol);
+  position: absolute;
+  left: 0; top: .05em;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-main), var(--color-accent));
+  color: var(--color-white);
+  font-size: .72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .art-cta-box {
   background: linear-gradient(135deg, var(--color-base-2) 0%, var(--color-base-3) 100%);
   border: 1px solid var(--color-border);
