@@ -1745,7 +1745,7 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   .hero__scroll { display: none; }
   .hero__inner { gap: 0; padding: 0 20px; }
   .hero__label { font-size: .7rem; margin-bottom: 18px; letter-spacing: .12em; }
-  .hero__title { font-size: 1.6rem; line-height: 1.5; margin-bottom: 22px; }
+  .hero__title { font-size: 1.9rem; line-height: 1.45; letter-spacing: .02em; margin-bottom: 22px; }
   .hero__sub {
     font-size: .86rem;
     line-height: 1.95;
@@ -1811,7 +1811,7 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
 
   .container { padding: 0 16px; }
   .hero__inner { padding: 0 16px; }
-  .hero__title { font-size: 1.46rem; }
+  .hero__title { font-size: 1.72rem; }
   .hero__sub   { font-size: .84rem; }
   .sec-title   { font-size: 1.24rem; }
   .hook__title { font-size: 1.1rem; }

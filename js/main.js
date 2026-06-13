@@ -93,11 +93,15 @@ document.querySelectorAll('.faq__q').forEach(btn => {
 
 /* ============================================
    FLOATING CTA
+   （Contactセクションが見えている間は非表示＝フォーム入力の邪魔をしない）
    ============================================ */
 const floatCta = document.getElementById('floatCta');
+const contactSec = document.getElementById('contact');
 
 window.addEventListener('scroll', () => {
-  floatCta.classList.toggle('show', window.scrollY > window.innerHeight * 0.6);
+  const scrolledEnough = window.scrollY > window.innerHeight * 0.6;
+  const nearContact = contactSec.getBoundingClientRect().top < window.innerHeight * 0.9;
+  floatCta.classList.toggle('show', scrolledEnough && !nearContact);
 }, { passive: true });
 
 /* ============================================
