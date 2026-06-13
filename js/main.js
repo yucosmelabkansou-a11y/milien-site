@@ -98,11 +98,15 @@ document.querySelectorAll('.faq__q').forEach(btn => {
 const floatCta = document.getElementById('floatCta');
 const contactSec = document.getElementById('contact');
 
-window.addEventListener('scroll', () => {
-  const scrolledEnough = window.scrollY > window.innerHeight * 0.6;
-  const nearContact = contactSec.getBoundingClientRect().top < window.innerHeight * 0.9;
-  floatCta.classList.toggle('show', scrolledEnough && !nearContact);
-}, { passive: true });
+if (floatCta) {
+  window.addEventListener('scroll', () => {
+    const scrolledEnough = window.scrollY > window.innerHeight * 0.6;
+    const nearContact = contactSec
+      ? contactSec.getBoundingClientRect().top < window.innerHeight * 0.9
+      : false;
+    floatCta.classList.toggle('show', scrolledEnough && !nearContact);
+  }, { passive: true });
+}
 
 /* ============================================
    ACTIVE NAV on scroll
