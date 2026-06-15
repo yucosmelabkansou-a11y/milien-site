@@ -142,11 +142,12 @@ if (form) {
     e.preventDefault();
 
     const name    = form.querySelector('#name').value.trim();
+    const company = form.querySelector('#company').value.trim();
     const email   = form.querySelector('#email').value.trim();
     const message = form.querySelector('#message').value.trim();
 
-    if (!name || !email || !message) {
-      alert('お名前・メールアドレス・ご相談内容は必須項目です。');
+    if (!name || !company || !email || !message) {
+      alert('お名前・会社名・ブランド名・メールアドレス・ご相談内容の詳細は必須項目です。');
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {

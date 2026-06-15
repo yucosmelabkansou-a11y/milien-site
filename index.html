@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
 
@@ -699,11 +699,12 @@
         <div class="cta-sec__inner">
           <div class="sec-hd reveal">
             <span class="sec-label">Contact</span>
-            <h2 class="sec-title cta-sec__title">まずは、商品の"選ばれる理由"を<br>一緒に整理しませんか？</h2>
+            <h2 class="sec-title cta-sec__title">まずは、現在の商品やブランドの<br>課題をお聞かせください。</h2>
           </div>
           <p class="cta-sec__desc reveal">
-            商品企画、OEM相談前の整理、既存商品の訴求改善、SNS販売導線まで。<br>
-            現在のフェーズに合わせて、必要な支援をご提案します。
+            OEM相談前の商品企画整理から、既存商品の伝え方の見直し、ブランドコンセプトの壁打ちまで。<br>
+            現在のフェーズに合わせてご相談いただけます。<br>
+            お問い合わせ内容を確認のうえ、必要に応じて初回相談または支援内容をご案内いたします。
           </p>
           <form class="form-wrap reveal" id="contactForm"
                 action="https://formspree.io/f/mbdezpye"
@@ -714,8 +715,8 @@
                 <input class="form__inp" type="text" id="name" name="name" placeholder="山田 花子" required>
               </div>
               <div class="form__grp">
-                <label class="form__lbl" for="company">会社名・屋号</label>
-                <input class="form__inp" type="text" id="company" name="company" placeholder="株式会社〇〇 / 個人の方は任意">
+                <label class="form__lbl" for="company">会社名・ブランド名 <span class="form__req">必須</span></label>
+                <input class="form__inp" type="text" id="company" name="company" placeholder="株式会社〇〇 / ブランド名" required>
               </div>
             </div>
             <div class="form__grp">
@@ -723,46 +724,50 @@
               <input class="form__inp" type="email" id="email" name="email" placeholder="example@email.com" required>
             </div>
             <div class="form__grp">
-              <label class="form__lbl" for="url">Webサイト／SNS URL</label>
-              <input class="form__inp" type="url" id="url" name="url" placeholder="ブランドサイト・Instagram等のURL（任意）">
+              <label class="form__lbl" for="url">Webサイト・SNS URL <span class="form__opt">任意</span></label>
+              <input class="form__inp" type="url" id="url" name="url" placeholder="ブランドサイト・Instagram等のURL">
             </div>
             <div class="form__grp">
-              <label class="form__lbl" for="phase">現在のフェーズ</label>
+              <label class="form__lbl" for="phase">現在のフェーズ <span class="form__opt">任意</span></label>
               <div class="form__sel-wrap">
                 <select class="form__sel" id="phase" name="phase">
                   <option value="">選択してください</option>
-                  <option value="これから立ち上げ">これから立ち上げ</option>
+                  <option value="ブランド・商品企画を検討中">ブランド・商品企画を検討中</option>
                   <option value="OEM相談前">OEM相談前</option>
-                  <option value="開発中">開発中</option>
-                  <option value="既存商品の改善">既存商品の改善</option>
-                  <option value="SNS・訴求改善">SNS・訴求改善</option>
+                  <option value="試作・処方検討中">試作・処方検討中</option>
+                  <option value="商品化・発売準備中">商品化・発売準備中</option>
+                  <option value="既存商品あり">既存商品あり</option>
+                  <option value="リニューアル検討中">リニューアル検討中</option>
+                  <option value="SNS・LPなどの見せ方を見直したい">SNS・LPなどの見せ方を見直したい</option>
+                  <option value="その他">その他</option>
                 </select>
               </div>
             </div>
             <div class="form__grp">
-              <span class="form__lbl">希望する支援内容（複数選択可）</span>
+              <span class="form__lbl">相談したい内容 <span class="form__opt">任意・複数選択可</span></span>
               <div class="form__checks">
-                <label class="form__check"><input type="checkbox" name="support_type" value="商品企画">商品企画</label>
-                <label class="form__check"><input type="checkbox" name="support_type" value="OEM相談前の整理">OEM相談前の整理</label>
-                <label class="form__check"><input type="checkbox" name="support_type" value="既存商品の訴求改善">既存商品の訴求改善</label>
-                <label class="form__check"><input type="checkbox" name="support_type" value="SNS販売導線">SNS販売導線</label>
+                <label class="form__check"><input type="checkbox" name="support_type" value="OEM相談前の商品企画整理">OEM相談前の商品企画整理</label>
+                <label class="form__check"><input type="checkbox" name="support_type" value="ブランドコンセプトの壁打ち">ブランドコンセプトの壁打ち</label>
+                <label class="form__check"><input type="checkbox" name="support_type" value="既存商品の伝え方の見直し">既存商品の伝え方の見直し</label>
+                <label class="form__check"><input type="checkbox" name="support_type" value="成分・処方の魅力の伝え方">成分・処方の魅力の伝え方</label>
+                <label class="form__check"><input type="checkbox" name="support_type" value="継続的な伴走支援について相談したい">継続的な伴走支援について相談したい</label>
                 <label class="form__check"><input type="checkbox" name="support_type" value="その他">その他</label>
               </div>
             </div>
             <div class="form__grp">
-              <label class="form__lbl" for="message">相談したい内容 <span class="form__req">必須</span></label>
-              <textarea class="form__ta" id="message" name="message" rows="6" placeholder="例：スキンケアブランドの立ち上げを考えています。ターゲット設定やコンセプト設計から相談したいです。" required></textarea>
+              <label class="form__lbl" for="message">ご相談内容の詳細 <span class="form__req">必須</span></label>
+              <textarea class="form__ta" id="message" name="message" rows="6" placeholder="現在の商品・ブランドの状況、相談したいこと、今後検討していることなどをご記入ください。" required></textarea>
             </div>
             <div class="form__submit">
               <button type="submit" class="btn btn--primary btn--lg btn--full" id="submitBtn">相談内容を送信する</button>
-              <p class="form__note">内容を確認のうえ、通常2〜3営業日以内にご返信いたします。</p>
+              <p class="form__note">お問い合わせ内容を確認のうえ、通常数日以内にご返信いたします。<br>内容に応じて、初回相談または支援内容をご案内いたします。</p>
             </div>
             <p class="form__error" id="formError" style="display:none;">送信に失敗しました。時間をおいて再度お試しいただくか、Instagram DMにてご連絡ください。</p>
           </form>
           <div class="thanks" id="contactThanks" style="display:none;">
             <div class="thanks__ic">✓</div>
             <h3>お問い合わせありがとうございます</h3>
-            <p>内容を確認のうえ、通常2〜3営業日以内にご返信いたします。</p>
+            <p>お問い合わせ内容を確認のうえ、通常数日以内にご返信いたします。<br>内容に応じて、初回相談または支援内容をご案内いたします。</p>
           </div>
         </div>
       </div>
@@ -798,6 +803,6 @@
 
   <a href="#contact" class="float-cta" id="floatCta">現在の課題を相談する</a>
 
-  <script src="js/main.js?v=6"></script>
+  <script src="js/main.js?v=9"></script>
 </body>
 </html>

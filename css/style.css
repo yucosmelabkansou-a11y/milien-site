@@ -1605,6 +1605,15 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   margin-left: 6px;
   font-weight: 400;
 }
+.form__opt {
+  font-size: .65rem;
+  color: var(--color-text-lt);
+  background: var(--color-base-2);
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-left: 6px;
+  font-weight: 400;
+}
 .form__inp,
 .form__sel,
 .form__ta {
@@ -1851,6 +1860,12 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
 
   .form__row { grid-template-columns: 1fr; }
   .form-wrap { padding: 36px 28px; }
+  /* スマホ：iOS自動ズーム防止（16px）＋タップしやすい入力高さ */
+  .form__inp,
+  .form__sel,
+  .form__ta { font-size: 16px; padding: 14px 16px; }
+  .form__checks { grid-template-columns: 1fr; gap: 14px 16px; }
+  .form__check { padding: 4px 0; }
 }
 
 /* ============================================
