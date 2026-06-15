@@ -92,6 +92,36 @@ document.querySelectorAll('.faq__q').forEach(btn => {
 });
 
 /* ============================================
+   ACCORDION（Service / Flow）
+   各項目は独立して開閉（複数同時に開いてOK）
+   ============================================ */
+document.querySelectorAll('.acc__head').forEach(head => {
+  head.addEventListener('click', () => {
+    const expanded = head.getAttribute('aria-expanded') === 'true';
+    const item = head.closest('.acc__item');
+    const body = head.nextElementSibling;
+    head.setAttribute('aria-expanded', String(!expanded));
+    item.classList.toggle('open', !expanded);
+    if (body) body.classList.toggle('open', !expanded);
+  });
+});
+
+/* ============================================
+   相談フェーズ別タブ
+   ============================================ */
+document.querySelectorAll('.tabs').forEach(tabs => {
+  const btns   = tabs.querySelectorAll('.tabs__btn');
+  const panels = tabs.querySelectorAll('.tabs__panel');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.tab;
+      btns.forEach(b => b.classList.toggle('is-active', b === btn));
+      panels.forEach(p => p.classList.toggle('is-active', p.dataset.panel === id));
+    });
+  });
+});
+
+/* ============================================
    FLOATING CTA
    （Contactセクションが見えている間は非表示＝フォーム入力の邪魔をしない）
    ============================================ */
