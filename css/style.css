@@ -2028,8 +2028,8 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   .form__inp,
   .form__sel,
   .form__ta { font-size: 16px; padding: 14px 16px; }
-  .form__checks { grid-template-columns: 1fr; gap: 14px 16px; }
-  .form__check { padding: 4px 0; }
+  .form__checks { grid-template-columns: 1fr; gap: 8px 16px; }
+  .form__check { padding: 9px 4px; min-height: 44px; }
 }
 
 /* ============================================
