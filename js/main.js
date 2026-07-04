@@ -1,7 +1,10 @@
 /* ============================================
-   HERO stagger animation (after load)
+   HERO stagger animation
+   （スクリプトは body 末尾で実行されるため初回ペイント前に開始できる。
+   旧実装の window.load 待ちは、描画済みのヒーローを一度隠してから
+   再表示するため、LCP が load イベントまで遅延していた）
    ============================================ */
-window.addEventListener('load', () => {
+(() => {
   const heroEls = document.querySelectorAll('.hero-anim');
   const delays = [0, 100, 200, 320, 460, 620];
   heroEls.forEach((el, i) => {
@@ -14,7 +17,7 @@ window.addEventListener('load', () => {
       el.style.transform = 'none';
     }));
   });
-});
+})();
 
 /* ============================================
    HEADER scroll effect
