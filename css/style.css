@@ -802,6 +802,94 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   font-weight: 700;
 }
 
+/* ===== FIT（お力になれる方・なれない方） ===== */
+.fit__lead {
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  letter-spacing: .03em;
+  max-width: 780px;
+  margin: 0 auto 40px;
+}
+.fit__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto 40px;
+}
+.fit__col {
+  border-radius: 6px;
+  padding: 30px 30px 32px;
+}
+.fit__col--no {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+.fit__col--yes {
+  background: rgba(216,167,183,.09);
+  border: 1px solid rgba(216,167,183,.28);
+}
+.fit__tag {
+  display: inline-block;
+  font-size: .74rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  color: var(--color-text-md);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  width: 100%;
+}
+.fit__tag--yes {
+  color: var(--color-main-dk);
+  border-bottom-color: rgba(216,167,183,.35);
+}
+.fit__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.fit__list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: .88rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+.fit__col--no .fit__list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-text-lt);
+}
+.fit__col--yes .fit__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: .58em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-main);
+}
+.fit__close {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  letter-spacing: .03em;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.fit__close strong {
+  color: var(--color-main-dk);
+  font-weight: 700;
+}
+
 /* ============================================
    SUPPORT AREAS
    ============================================ */
@@ -943,6 +1031,80 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   line-height: 1.85;
   color: var(--color-text-md);
   font-weight: 300;
+}
+.str__link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: .78rem;
+  letter-spacing: .04em;
+  color: var(--color-main-dk);
+  border-bottom: 1px solid rgba(201,143,143,.4);
+  padding-bottom: 2px;
+  transition: color .25s, border-color .25s;
+}
+.str__link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.prof__badge--link {
+  text-decoration: none;
+  transition: background .25s, border-color .25s;
+}
+.prof__badge--link:hover {
+  background: rgba(201,143,143,.2);
+  border-color: rgba(201,143,143,.45);
+}
+a.hvc--sns { text-decoration: none; color: inherit; cursor: pointer; }
+.hero__cta-note {
+  margin-top: 14px;
+  font-size: .74rem;
+  line-height: 1.7;
+  color: var(--color-text-md);
+  letter-spacing: .02em;
+}
+.svc__cta .hero__cta-note { text-align: center; }
+.consult-eg {
+  max-width: 720px;
+  margin: 0 auto 34px;
+  padding: 22px 26px;
+  background: rgba(201,143,143,.07);
+  border: 1px solid rgba(201,143,143,.18);
+  border-radius: 6px;
+}
+.consult-eg__hd {
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--color-main-dk);
+  letter-spacing: .06em;
+  margin-bottom: 12px;
+}
+.consult-eg__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.consult-eg__list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: .84rem;
+  line-height: 1.75;
+  color: var(--color-text-md);
+}
+.consult-eg__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-main);
+}
+.consult-eg__note {
+  margin-top: 14px;
+  font-size: .8rem;
+  color: var(--color-text-md);
 }
 .str__note {
   text-align: center;
@@ -2103,6 +2265,12 @@ button { cursor: pointer; font-family: var(--font-jp); border: none; background:
   .str__note    { padding: 28px 24px; }
   .prob__close  { padding: 30px 26px; }
   .prob__close p { font-size: .92rem; }
+
+  .fit__lead    { font-size: .96rem; margin-bottom: 28px; }
+  .fit__grid    { grid-template-columns: 1fr; gap: 14px; margin-bottom: 30px; }
+  .fit__col     { padding: 24px 22px; }
+  .fit__list li { font-size: .86rem; }
+  .fit__close   { font-size: .92rem; }
 
   .ftr__inner   { flex-direction: column; gap: 32px; }
   .ftr__nav ul  { align-items: flex-start; flex-direction: row; flex-wrap: wrap; gap: 10px 20px; }
