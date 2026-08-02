@@ -2986,3 +2986,58 @@ textarea:focus-visible {
   .fit__list li { font-size: .95rem; }
   .fit__close   { font-size: .96rem; }
 }
+
+/* ============================================
+   PC（1024px以上）の本文可読性
+   ・通常本文        …… 16px（1rem）
+   ・カード説明/FAQ回答/フォーム …… 15px以上（.95rem = 15.2px）
+   ・ラベル・注釈・英字タグライン・コピーライト …… 13〜14px
+   本文として読む要素のみを対象にする（全体への一括指定はしない）
+   ============================================ */
+@media (min-width: 1024px) {
+
+  /* --- 通常本文：16px --- */
+  .hero__sub,
+  .sec-close p,
+  .str__note p,
+  .prof__desc,
+  .msg__body p,
+  .cta-sec__desc { font-size: 1rem; }
+
+  /* --- カード説明・リスト・FAQ回答・フォーム：15px以上 --- */
+  .rec__item,
+  .ba__card p,
+  .supp__desc,
+  .supp__list li,
+  .deliv__item,
+  .str__desc,
+  .str__benefit,
+  .fit__list li,
+  .faq__q span:first-child,
+  .faq__a p,
+  .acc__body-in p,
+  .company__dd,
+  .company__biz li,
+  .form__check,
+  .form__inp,
+  .form__sel,
+  .form__ta,
+  .col-exc,
+  .thanks p { font-size: .95rem; }
+
+  /* --- 行間：文字を大きくした箇所で詰まらないように --- */
+  .supp__list li { line-height: 1.75; }
+  .deliv__item   { line-height: 1.7; }
+  .form__check   { line-height: 1.6; }
+
+  /* --- ラベル・注釈：13〜14px --- */
+  .hero__label      { font-size: .85rem; }
+  .prof__tl-list li { font-size: .875rem; }
+  .form__lbl        { font-size: .875rem; }
+  .sec-note         { font-size: .875rem; }
+  .acc__hint        { font-size: .85rem; }
+  .ftr__desc        { font-size: .85rem; }
+  .form__note       { font-size: .8125rem; }
+  .ftr__copy        { font-size: .8125rem; }
+  .prof__tl-label   { font-size: .8125rem; }
+}
