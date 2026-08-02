@@ -16,7 +16,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="css/style.css?v=17">
+  <link rel="stylesheet" href="css/style.css?v=18">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -68,7 +68,6 @@
       <div class="hero__deco-line"></div>
       <div class="hero__inner">
 
-        <!-- left: copy -->
         <div class="hero__copy">
           <p class="hero__label hero-anim">化粧品メーカー・原料・素材・資材企業向け　商品企画・開発支援</p>
           <h1 class="hero__title hero-anim d1">
@@ -85,10 +84,7 @@
           </div>
         </div>
 
-        <!-- right: visual -->
         <div class="hero__visual hero-anim d2">
-
-          <!-- value mapping card -->
           <div class="hvc hvc--formula">
             <span class="hvc__badge">Value Mapping</span>
             <div class="hvc__row">
@@ -113,7 +109,6 @@
             </div>
           </div>
 
-          <!-- bottle card -->
           <div class="hvc hvc--bottle">
             <div class="bottle">
               <div class="bottle__pump"></div>
@@ -127,7 +122,6 @@
             </div>
           </div>
 
-          <!-- concept tags card -->
           <div class="hvc hvc--tag">
             <div class="concept-tags">
               <div class="concept-tag">
@@ -144,13 +138,92 @@
               </div>
             </div>
           </div>
-
-        </div><!-- /hero__visual -->
-      </div><!-- /hero__inner -->
+        </div>
+      </div>
 
       <div class="hero__scroll">
         <span>Scroll</span>
         <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== PROBLEM（課題） ===== -->
+    <section class="section prob" id="problem">
+      <div class="container">
+        <div class="sec-hd reveal">
+          <span class="sec-label">Issue</span>
+          <h2 class="sec-title">こんな課題は<br>ありませんか？</h2>
+        </div>
+        <div class="prob__grid">
+          <div class="prob__card reveal">
+            <div class="prob__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3 L20 7.5 V16.5 L12 21 L4 16.5 V7.5 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                <path d="M12 3 V12 M12 12 L20 7.5 M12 12 L4 7.5" stroke="currentColor" stroke-width="1.1"/>
+              </svg>
+            </div>
+            <p>強みのある技術や素材を、商品にしたい</p>
+          </div>
+          <div class="prob__card reveal d1">
+            <div class="prob__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M8 9 H16 M8 13 H14" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                <path d="M8.5 17.5 L11 17.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="1 2.5"/>
+              </svg>
+            </div>
+            <p>自社商品の企画がまとまらない</p>
+          </div>
+          <div class="prob__card reveal d2">
+            <div class="prob__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 19 V10 M9.5 19 V6 M15 19 V13 M20.5 19 V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M3 21.5 H21.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p>受託中心の売上構造を見直したい</p>
+          </div>
+          <div class="prob__card reveal d3">
+            <div class="prob__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12 C5.5 7.5 8.8 5.5 12 5.5 C15.2 5.5 18.5 7.5 21 12 C18.5 16.5 15.2 18.5 12 18.5 C8.8 18.5 5.5 16.5 3 12 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M4 20 L20 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p>商品の良さが、生活者に伝わらない</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MERIT（自社商品を持つ意味） ===== -->
+    <section class="section merit" id="merit">
+      <div class="container">
+        <div class="sec-hd reveal">
+          <span class="sec-label">Own Product</span>
+          <h2 class="sec-title">技術や素材を、商品という形へ</h2>
+        </div>
+        <p class="sec-lead reveal">自社商品は、新しい売上だけでなく、技術や素材を伝えるショーケースにもなります。</p>
+        <div class="merit__flow reveal">
+          <div class="merit__node">技術・素材</div>
+          <div class="merit__arrow" aria-hidden="true">
+            <svg viewBox="0 0 12 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 0 V27 M1.5 22 L6 28 L10.5 22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="merit__node merit__node--main">自社商品</div>
+          <div class="merit__arrow" aria-hidden="true">
+            <svg viewBox="0 0 12 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 0 V27 M1.5 22 L6 28 L10.5 22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <ul class="merit__results">
+            <li>技術力を見せる</li>
+            <li>営業に活かす</li>
+            <li>自社で売上を育てる</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -159,7 +232,7 @@
       <div class="container">
         <div class="sec-hd reveal">
           <span class="sec-label">Target</span>
-          <h2 class="sec-title">このような化粧品関連企業の<br>商品企画を支援しています</h2>
+          <h2 class="sec-title">支援対象となる<br>化粧品関連企業</h2>
         </div>
         <p class="sec-lead reveal">
           Milienは、独自の素材・技術・製造基盤、または既存商品を持ち、その価値を生活者に選ばれる商品企画・訴求へつなげたい化粧品関連企業を支援します。
@@ -179,16 +252,13 @@
       </div>
     </section>
 
-    <!-- ===== BEFORE / AFTER（支援によって起こる変化） ===== -->
+    <!-- ===== BEFORE / AFTER ===== -->
     <section class="section ba" id="change">
       <div class="container">
         <div class="sec-hd reveal">
           <span class="sec-label">Before / After</span>
-          <h2 class="sec-title">商品企画・開発支援によって、<br>何が変わるのか</h2>
+          <h2 class="sec-title">支援によって、何が変わるのか</h2>
         </div>
-        <p class="sec-lead reveal">
-          支援では、技術や素材の情報を、社内で判断に使える形へ整理します。支援前後で、次のように状態が変わります。
-        </p>
         <div class="ba__rows">
           <div class="ba__row reveal">
             <div class="ba__card ba__card--before">
@@ -247,7 +317,7 @@
           </div>
         </div>
         <div class="prob__close ba__close reveal">
-          <p>そして、<strong>社内外の関係者が共通認識を持って進められる</strong>状態になります。<br>整理した内容は、社内に判断軸として残る形でお渡しします。</p>
+          <p>そして、<strong>社内外の関係者が共通認識を持って進められる</strong>状態になります。</p>
         </div>
       </div>
     </section>
@@ -257,17 +327,15 @@
       <div class="container">
         <div class="sec-hd reveal">
           <span class="sec-label">Service</span>
-          <h2 class="sec-title">主力サービス｜<br>既存商品の価値再設計と、新商品の企画・開発伴走</h2>
+          <h2 class="sec-title">主力サービス</h2>
         </div>
-        <p class="sec-lead reveal">
-          Milienの化粧品の商品企画・開発支援は、次の2つです。どちらも、単発の相談ではなく、商品の価値と販売設計を整理するところまでを範囲としています。
-        </p>
+        <p class="sec-lead reveal">単発の相談ではなく、商品の価値と販売設計の整理までを範囲とします。</p>
         <div class="supp__grid supp__grid--2">
           <div class="supp__card reveal">
             <span class="supp__num">01</span>
             <h3 class="supp__ttl">既存商品・技術の価値再設計</h3>
             <p class="supp__sub">Value Redesign</p>
-            <p class="supp__desc">すでにある商品・素材・技術・ブランド資産を見直し、「何を価値として、誰に、どう伝えるのか」を再設計します。SNSの改善やコピー制作ではなく、商品の価値と販売設計そのものを整理する支援です。</p>
+            <p class="supp__desc">すでにある商品・素材・技術を見直し、「何を価値として、誰に、どう伝えるのか」を再設計します。</p>
             <ul class="supp__list">
               <li>誰に届ける商品なのか</li>
               <li>どのような課題に応えるのか</li>
@@ -282,7 +350,7 @@
             <span class="supp__num">02</span>
             <h3 class="supp__ttl">新商品の企画・開発伴走</h3>
             <p class="supp__sub">Product Development</p>
-            <p class="supp__desc">企業が持つ素材・技術・製造基盤・既存顧客を活かし、商品コンセプトの設計から発売時の訴求まで、開発の流れに沿って伴走します。</p>
+            <p class="supp__desc">自社の素材・技術・製造基盤を活かし、商品コンセプトから発売時の訴求まで伴走します。</p>
             <ul class="supp__list">
               <li>市場・競合整理</li>
               <li>ターゲット設定</li>
@@ -295,10 +363,27 @@
             </ul>
           </div>
         </div>
-        <div class="sec-close reveal">
-          <p>パッケージ、LP、SNSについては、制作代行ではなく、商品価値を一貫して伝えるための方向性設計として扱います。<br>
-          発売準備・訴求設計は、上記2つのサービスに付随する支援、または追加支援として対応します。</p>
+
+        <p class="svc__tabs-hd reveal">支援の流れ</p>
+        <div class="steps reveal">
+          <div class="steps__item">
+            <span class="steps__no">01</span>
+            <span class="steps__label">企画設計</span>
+          </div>
+          <span class="steps__sep" aria-hidden="true">›</span>
+          <div class="steps__item">
+            <span class="steps__no">02</span>
+            <span class="steps__label">開発伴走</span>
+          </div>
+          <span class="steps__sep" aria-hidden="true">›</span>
+          <div class="steps__item">
+            <span class="steps__no">03</span>
+            <span class="steps__label">発売準備</span>
+          </div>
         </div>
+
+        <p class="sec-note reveal">発売準備・訴求設計は、2つのサービスに付随する支援、または追加支援として対応します。</p>
+
         <div class="svc__cta reveal">
           <a href="#contact" class="btn btn--primary btn--lg">自社の技術・商品の課題を相談する</a>
         </div>
@@ -312,9 +397,17 @@
           <span class="sec-label">Why Milien</span>
           <h2 class="sec-title">なぜ、技術や素材を<br>商品価値へ変換できるのか</h2>
         </div>
-        <p class="sec-lead reveal">
-          処方研究・商品企画・生活者への発信という3つの実務経験が、それぞれ支援内容と直接つながっています。
-        </p>
+
+        <div class="chain reveal">
+          <span class="chain__node">研究</span>
+          <span class="chain__link" aria-hidden="true">→</span>
+          <span class="chain__node">処方</span>
+          <span class="chain__link" aria-hidden="true">→</span>
+          <span class="chain__node">企画</span>
+          <span class="chain__link" aria-hidden="true">→</span>
+          <span class="chain__node">発信</span>
+        </div>
+
         <div class="str__grid">
           <div class="str__card reveal">
             <div class="str__icon">
@@ -327,8 +420,8 @@
             </div>
             <span class="str__num">01</span>
             <h3 class="str__ttl">化粧品会社での<br>処方研究経験</h3>
-            <p class="str__desc">原料、処方、使用感、技術資料などを、表面的なキーワードだけで判断せず、内容を理解したうえで商品価値を整理できます。</p>
-            <p class="str__benefit"><b>お客様にとっての利点</b>技術の説明を一から翻訳し直す必要がなく、「その技術の何が価値なのか」から議論を始められます。</p>
+            <p class="str__desc">原料・処方・使用感・技術資料を、内容を理解したうえで商品価値へ整理できます。</p>
+            <p class="str__benefit"><b>お客様にとっての利点</b>「その技術の何が価値なのか」から議論を始められます。</p>
           </div>
           <div class="str__card reveal d1">
             <div class="str__icon">
@@ -343,8 +436,8 @@
             </div>
             <span class="str__num">02</span>
             <h3 class="str__ttl">商品企画・マーケティングの<br>実務経験</h3>
-            <p class="str__desc">化粧品会社で商品企画を経験し、現在は化粧品OEMの商品企画・マーケティングに携わっています。処方、原料、容器、価格、ロット、製造工程などの実現性を踏まえて、企画を実際の商品開発へ落とし込めます。</p>
-            <p class="str__benefit"><b>お客様にとっての利点</b>実現できない企画に時間を使わず、開発・製造部門やOEMへそのまま共有できる企画条件まで整理できます。</p>
+            <p class="str__desc">処方・原料・容器・価格・ロット・製造工程の実現性を踏まえ、企画を商品開発へ落とし込めます。</p>
+            <p class="str__benefit"><b>お客様にとっての利点</b>開発・製造部門やOEMへそのまま共有できる企画条件まで整理できます。</p>
           </div>
           <div class="str__card reveal d2">
             <div class="str__icon">
@@ -358,7 +451,7 @@
             </div>
             <span class="str__num">03</span>
             <h3 class="str__ttl">美容発信者としての<br>経験</h3>
-            <p class="str__desc">日本の化粧品ブランドを中心に、成分、処方、企業独自の技術を、生活者にとってのベネフィットへ置き換えて発信してきました。</p>
+            <p class="str__desc">成分・処方・企業独自の技術を、生活者のベネフィットへ置き換えて発信してきました。</p>
             <p class="str__benefit"><b>お客様にとっての利点</b>技術情報を、生活者が「自分に必要」と理解できる言葉へ翻訳できます。</p>
           </div>
         </div>
@@ -415,19 +508,17 @@
       </div>
     </section>
 
-    <!-- ===== MESSAGE（Milienに込めた想い） ===== -->
+    <!-- ===== MESSAGE ===== -->
     <section class="section msg" id="message">
       <span class="msg__bg-word" aria-hidden="true">lien</span>
       <div class="container">
         <div class="sec-hd reveal">
           <span class="sec-label">Message</span>
           <h2 class="sec-title msg__title">本当に良いものが、<br>必要な人に届く化粧品づくりを。</h2>
-          <p class="msg__sub">素材や技術の価値も、ものづくりに込めた想いも、<br>生活者に伝わる形へ整えていきます。</p>
         </div>
         <div class="msg__body reveal">
-          <p>日本には、優れた素材や技術が数多くあります。一方で、その価値が十分に伝わらないまま、埋もれてしまっている商品もあります。技術として優れていることと、生活者に選ばれることは、必ずしも同じではありません。</p>
-          <p>処方研究と商品企画、そして生活者への発信を通じて、同じ処方でも「誰に届けるのか」「どのような課題に応えるのか」「どんな言葉で伝えるのか」によって、商品の伝わり方が大きく変わることを見てきました。だからこそ、一時的な注目ではなく、長く選ばれる商品を一緒につくっていきたいと考えています。</p>
-          <p>研究、商品企画、生活者への発信で培った視点をつなぎ、企業が持つ技術や素材を「誰の、どのような課題に応える商品なのか」まで整理する。日本の優れた技術やものづくりを、長く選ばれる商品として届けることが、Milienの目指す商品企画・開発支援です。</p>
+          <p>日本には優れた素材や技術が数多くあります。一方で、その価値が伝わらないまま埋もれている商品もあります。技術として優れていることと、生活者に選ばれることは、同じではありません。</p>
+          <p>同じ処方でも、誰に届け、どのような課題に応え、どんな言葉で伝えるかによって、商品の伝わり方は変わります。一時的な注目ではなく、長く選ばれる商品を一緒につくりたいと考えています。</p>
           <p>Milienという社名には、フランス語の <span class="msg__em">“lien”</span>（つながり）に由来する意味を込めています。作り手、技術、商品、そして生活者。その間にある価値と言葉をつなぎ、本当に良いものが、必要な人に届く化粧品づくりを。</p>
           <div class="msg__sign">
             <span class="msg__sign-co">Milien株式会社 代表</span>
@@ -437,76 +528,29 @@
       </div>
     </section>
 
-    <!-- ===== FLOW & SCOPE（支援の進め方・対応範囲） ===== -->
+    <!-- ===== FLOW & SCOPE ===== -->
     <section class="section flow" id="flow">
       <div class="container">
         <div class="sec-hd reveal">
           <span class="sec-label">Flow &amp; Scope</span>
           <h2 class="sec-title">支援の進め方と対応範囲</h2>
         </div>
-        <p class="sec-lead reveal">
-          お問い合わせから支援開始まで、4つのステップで進めます。対応する範囲・対応しない範囲は下記のとおりです。
-        </p>
-        <div class="acc acc--flow reveal">
-          <div class="acc__item">
-            <button class="acc__head" aria-expanded="false">
-              <span class="acc__num">01</span>
-              <span class="acc__titles">
-                <span class="acc__ttl">お問い合わせ</span>
-                <span class="acc__hint">現在の状況をフォームからお送りください</span>
-              </span>
-              <span class="acc__ic" aria-hidden="true">+</span>
-            </button>
-            <div class="acc__body">
-              <div class="acc__body-in">
-                <p>フォームより、現在の商品・素材・技術の状況と、ご相談内容をお送りください。</p>
-              </div>
-            </div>
+
+        <div class="flow3">
+          <div class="flow3__step reveal">
+            <span class="flow3__no">01</span>
+            <h3 class="flow3__ttl">お問い合わせ</h3>
+            <p class="flow3__desc">フォームから現在の状況をお送りください。</p>
           </div>
-          <div class="acc__item">
-            <button class="acc__head" aria-expanded="false">
-              <span class="acc__num">02</span>
-              <span class="acc__titles">
-                <span class="acc__ttl">内容確認・初回打ち合わせ（オンライン）</span>
-                <span class="acc__hint">現状と課題、支援範囲の認識合わせ</span>
-              </span>
-              <span class="acc__ic" aria-hidden="true">+</span>
-            </button>
-            <div class="acc__body">
-              <div class="acc__body-in">
-                <p>お送りいただいた内容を確認のうえ、現状と課題、支援範囲の認識合わせを行います。</p>
-              </div>
-            </div>
+          <div class="flow3__step reveal d1">
+            <span class="flow3__no">02</span>
+            <h3 class="flow3__ttl">初回打ち合わせ</h3>
+            <p class="flow3__desc">オンラインで現状と課題、支援範囲をすり合わせます。</p>
           </div>
-          <div class="acc__item">
-            <button class="acc__head" aria-expanded="false">
-              <span class="acc__num">03</span>
-              <span class="acc__titles">
-                <span class="acc__ttl">支援内容のご提案</span>
-                <span class="acc__hint">対象範囲・進め方・期間・費用をご提案</span>
-              </span>
-              <span class="acc__ic" aria-hidden="true">+</span>
-            </button>
-            <div class="acc__body">
-              <div class="acc__body-in">
-                <p>対象範囲、進め方、期間、費用をご提案します。</p>
-              </div>
-            </div>
-          </div>
-          <div class="acc__item">
-            <button class="acc__head" aria-expanded="false">
-              <span class="acc__num">04</span>
-              <span class="acc__titles">
-                <span class="acc__ttl">支援開始</span>
-                <span class="acc__hint">社内で活用できる形にまとめてお渡しします</span>
-              </span>
-              <span class="acc__ic" aria-hidden="true">+</span>
-            </button>
-            <div class="acc__body">
-              <div class="acc__body-in">
-                <p>整理した内容を、社内で活用できる形にまとめてお渡ししながら進めます。</p>
-              </div>
-            </div>
+          <div class="flow3__step reveal d2">
+            <span class="flow3__no">03</span>
+            <h3 class="flow3__ttl">ご提案・支援開始</h3>
+            <p class="flow3__desc">対象範囲・進め方・期間・費用をご提案し、合意後に開始します。</p>
           </div>
         </div>
 
@@ -538,14 +582,13 @@
       </div>
     </section>
 
-    <!-- ===== FIT（向いている企業・向いていないご依頼） ===== -->
+    <!-- ===== FIT ===== -->
     <section class="section fit" id="fit">
       <div class="container">
         <div class="sec-hd reveal">
           <span class="sec-label">Fit</span>
           <h2 class="sec-title">向いている企業・<br>向いていないご依頼</h2>
         </div>
-        <p class="sec-lead reveal">相互のミスマッチを防ぐため、支援の前提を記載しています。</p>
         <div class="fit__grid">
           <div class="fit__col fit__col--no reveal">
             <span class="fit__tag">向いていないご依頼</span>
@@ -569,7 +612,7 @@
             </ul>
           </div>
         </div>
-        <p class="fit__close reveal">どちらに当てはまるか判断が難しい場合も、現在の状況をお聞かせいただければ、<strong>支援できる範囲をお伝えします</strong>。</p>
+        <p class="fit__close reveal">判断が難しい場合も、現在の状況をお聞かせいただければ<strong>支援できる範囲をお伝えします</strong>。</p>
       </div>
     </section>
 
@@ -587,16 +630,16 @@
               <span class="faq__ic">+</span>
             </button>
             <div class="faq__a">
-              <p>Milienは製造を行いません。OEMメーカーが製造と処方開発を担うのに対し、Milienが担うのは、その前後にある「何を作るのか」「誰に届けるのか」「どう伝えるのか」の整理です。外部の商品企画パートナーとしての立場になります。</p>
+              <p>Milienは製造を行いません。OEMメーカーが製造・処方開発を担うのに対し、Milienは「何を作るか」「誰に届けるか」「どう伝えるか」を整理する外部の商品企画パートナーです。</p>
             </div>
           </div>
           <div class="faq__item">
             <button class="faq__q" aria-expanded="false">
-              <span>原料メーカー・資材メーカーですが、化粧品ブランドを持っていなくても相談できますか？</span>
+              <span>化粧品ブランドを持っていなくても相談できますか？</span>
               <span class="faq__ic">+</span>
             </button>
             <div class="faq__a">
-              <p>ご相談いただけます。自社の素材や技術を、どのような商品として、誰に届けるのかが決まっていない段階が、主な支援対象です。</p>
+              <p>ご相談いただけます。素材や技術を、どのような商品として誰に届けるかが未定の段階が、主な支援対象です。</p>
             </div>
           </div>
           <div class="faq__item">
@@ -605,7 +648,7 @@
               <span class="faq__ic">+</span>
             </button>
             <div class="faq__a">
-              <p>できます。「01 既存商品・技術の価値再設計」が該当します。既存の商品・素材・技術・ブランド資産を見直し、誰に、何を価値として伝えるかを再設計します。</p>
+              <p>できます。「01 既存商品・技術の価値再設計」が該当します。</p>
             </div>
           </div>
           <div class="faq__item">
@@ -623,7 +666,7 @@
               <span class="faq__ic">+</span>
             </button>
             <div class="faq__a">
-              <p>制作代行は行っていません。支援範囲は、商品価値を一貫して伝えるための方向性設計（何を、誰に、どう伝えるか）までです。制作は貴社または制作会社にご対応いただきます。</p>
+              <p>制作代行は行っていません。支援範囲は、商品価値を一貫して伝えるための方向性設計までです。</p>
             </div>
           </div>
           <div class="faq__item">
@@ -632,14 +675,14 @@
               <span class="faq__ic">+</span>
             </button>
             <div class="faq__a">
-              <p>訴求の方向性や表現リスクの整理は対応しますが、最終確認・リーガルチェックは行いません。必要な場合は薬事専門家へのご確認を推奨しています。</p>
+              <p>訴求の方向性や表現リスクの整理は対応しますが、最終確認・リーガルチェックは行いません。薬事専門家へのご確認を推奨しています。</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== COMPANY（会社概要） ===== -->
+    <!-- ===== COMPANY ===== -->
     <section class="section company" id="company">
       <div class="container">
         <div class="sec-hd reveal">
@@ -673,16 +716,13 @@
       </div>
     </section>
 
-    <!-- ===== TIMING（相談するタイミング） ===== -->
+    <!-- ===== TIMING ===== -->
     <section class="section timing" id="timing">
       <div class="container">
         <div class="sec-hd reveal">
           <span class="sec-label">Timing</span>
-          <h2 class="sec-title">化粧品開発のどの段階で<br>ご相談いただくとよいか</h2>
+          <h2 class="sec-title">ご相談いただくタイミング</h2>
         </div>
-        <p class="sec-lead reveal">
-          どの段階でも対応できますが、条件を確定する前にご相談いただくと、整理した内容を開発へ反映しやすくなります。
-        </p>
         <ul class="rec__list rec__list--1col">
           <li class="rec__item reveal"><span class="rec__check">✓</span>社内の開発・製造部門、またはOEMへ正式依頼する前</li>
           <li class="rec__item reveal"><span class="rec__check">✓</span>初回試作を重ねる前</li>
@@ -690,9 +730,7 @@
           <li class="rec__item reveal"><span class="rec__check">✓</span>既存商品のリニューアル方針を決める前</li>
           <li class="rec__item reveal"><span class="rec__check">✓</span>LPやSNSの訴求を確定する前</li>
         </ul>
-        <div class="sec-close reveal">
-          <p>開発が進むほど、方向性の変更には工数がかかります。早い段階で企画条件と訴求の軸を整理しておくことで、開発上の手戻りを減らしやすくなります。</p>
-        </div>
+        <p class="sec-note reveal">条件を確定する前に整理しておくことで、開発上の手戻りを減らしやすくなります。</p>
       </div>
     </section>
 
@@ -705,8 +743,7 @@
             <h2 class="sec-title cta-sec__title">自社の技術・商品について、<br>現状をお聞かせください。</h2>
           </div>
           <p class="cta-sec__desc reveal">
-            既存商品・技術の価値再設計から、新商品の企画・開発伴走まで、現在の状況に合わせてご相談いただけます。<br>
-            お問い合わせ内容を確認のうえ、初回打ち合わせ（オンライン）または支援内容をご案内します。
+            お問い合わせ内容を確認のうえ、初回打ち合わせまたは支援内容をご案内します。
           </p>
           <form class="form-wrap reveal" id="contactForm"
                 action="https://formspree.io/f/mbdezpye"
@@ -788,7 +825,7 @@
           <div class="thanks" id="contactThanks" style="display:none;">
             <div class="thanks__ic">✓</div>
             <h3>お問い合わせありがとうございます</h3>
-            <p>お問い合わせ内容を確認のうえ、数日以内にご返信します。</p>
+            <p>数日以内にご返信します。</p>
           </div>
         </div>
       </div>
@@ -805,13 +842,13 @@
           <article class="col-card reveal">
             <span class="col-tag">商品企画</span>
             <h3 class="col-ttl">化粧品づくりの基本3ステップ</h3>
-            <p class="col-exc">OEM相談前に整理したい、お客さまの悩み・理想の状態・商品で提供できる価値を解説します。</p>
+            <p class="col-exc">OEM相談前に整理したい3つのステップを解説します。</p>
             <a href="column/cosmetic-product-planning-3steps/" class="col-more">記事を読む →</a>
           </article>
           <article class="col-card reveal d1">
             <span class="col-tag">コンサル</span>
             <h3 class="col-ttl">化粧品開発コンサルとは？OEM相談前・商品企画・訴求改善で相談できること</h3>
-            <p class="col-exc">化粧品開発コンサルとは、商品企画・ブランド設計・成分の魅力・伝え方を整理し、化粧品ブランドの「お客様が買う理由」を明確にするサポートです。</p>
+            <p class="col-exc">商品企画・ブランド設計・伝え方を整理し、「買う理由」を明確にする支援について解説します。</p>
             <a href="column/cosmetic-development-consulting/" class="col-more">記事を読む →</a>
           </article>
         </div>
@@ -829,7 +866,7 @@
             <span class="ftr__logo-en">Milien株式会社</span>
             <span class="ftr__logo-txt">Cosmetic Product Planning Partner</span>
           </p>
-          <p class="ftr__desc">日本の素材・技術・既存商品の価値を、生活者に選ばれる商品価値へ変える、<br>化粧品の商品企画・開発支援パートナーです。</p>
+          <p class="ftr__desc">日本の素材・技術・既存商品の価値を、<br>化粧品の商品企画・開発支援でつなぎます。</p>
         </div>
         <nav class="ftr__nav">
           <ul>

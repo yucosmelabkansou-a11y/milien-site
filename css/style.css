@@ -3041,3 +3041,227 @@ textarea:focus-visible {
   .ftr__copy        { font-size: .8125rem; }
   .prof__tl-label   { font-size: .8125rem; }
 }
+
+/* ============================================
+   2026-08 図解化アップデート
+   （課題カード / 自社商品の図 / 支援の流れ / 強みの連鎖 / 3ステップ）
+   既存の白・ベージュ・淡いピンクの範囲で構成し、
+   外部ライブラリ・画像素材は使用しない
+   ============================================ */
+
+/* --- PROBLEM：アイコン付き4カード（締め文なしのため下余白を詰める） --- */
+.prob__grid:last-child { margin-bottom: 0; }
+.prob__ic {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(216,167,183,.16), rgba(157,138,179,.14));
+  color: var(--color-main-dk);
+}
+.prob__ic svg { width: 22px; height: 22px; }
+.prob__card p { font-size: .95rem; line-height: 1.7; font-weight: 500; }
+
+/* --- MERIT：技術・素材 → 自社商品 → 3つの効果 --- */
+.merit { background: var(--color-base-2); }
+.merit__flow {
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.merit__node {
+  width: 100%;
+  max-width: 300px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 18px 28px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  color: var(--color-text);
+}
+.merit__node--main {
+  background: linear-gradient(135deg, rgba(216,167,183,.18), rgba(157,138,179,.15));
+  border-color: rgba(216,167,183,.45);
+  font-weight: 700;
+  font-size: 1.12rem;
+  box-shadow: 0 6px 26px rgba(157,138,179,.12);
+}
+.merit__arrow {
+  color: var(--color-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+.merit__arrow svg { width: 12px; height: 30px; }
+.merit__results {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+.merit__results li {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-main);
+  border-radius: 6px;
+  padding: 18px 12px;
+  text-align: center;
+  font-size: .95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* --- STEPS：支援の流れ（企画設計 → 開発伴走 → 発売準備） --- */
+.steps {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.steps__item {
+  flex: 1;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.steps__no {
+  font-family: var(--font-en);
+  font-size: .78rem;
+  letter-spacing: .18em;
+  color: var(--color-gold);
+}
+.steps__label {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--color-text);
+}
+.steps__sep {
+  display: flex;
+  align-items: center;
+  color: var(--color-main);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+/* --- CHAIN：強みの連鎖（研究 → 処方 → 企画 → 発信） --- */
+.chain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-bottom: 56px;
+}
+.chain__node {
+  background: var(--color-white);
+  border: 1px solid rgba(216,167,183,.4);
+  border-radius: 999px;
+  padding: 11px 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--color-text);
+}
+.chain__link {
+  color: var(--color-main);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* --- FLOW3：ご相談の流れ 3ステップ --- */
+.flow3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.flow3__step {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 28px 24px 26px;
+  position: relative;
+  overflow: hidden;
+}
+.flow3__step::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-main), var(--color-gold));
+}
+.flow3__no {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 1.7rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-sub);
+  letter-spacing: .06em;
+  margin-bottom: 12px;
+}
+.flow3__ttl {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+.flow3__desc {
+  font-size: .95rem;
+  line-height: 1.8;
+  color: var(--color-text-md);
+}
+
+/* --- レスポンシブ --- */
+@media (max-width: 1023px) {
+  .flow3 { grid-template-columns: 1fr; gap: 12px; }
+  .flow3__step { padding: 22px 20px; }
+  .flow3__no { font-size: 1.4rem; margin-bottom: 8px; }
+}
+@media (max-width: 767px) {
+  .prob__grid { grid-template-columns: 1fr; gap: 12px; }
+  .prob__card { padding: 20px 20px; gap: 14px; }
+  .prob__ic   { width: 36px; height: 36px; }
+  .prob__ic svg { width: 19px; height: 19px; }
+
+  .merit__node { max-width: 100%; padding: 16px 20px; font-size: .96rem; }
+  .merit__node--main { font-size: 1.05rem; }
+  .merit__arrow { padding: 8px 0; }
+  .merit__arrow svg { height: 24px; }
+  .merit__results { grid-template-columns: 1fr; gap: 10px; }
+  .merit__results li { padding: 14px 12px; }
+
+  .steps { flex-direction: column; gap: 6px; }
+  .steps__item { padding: 16px 14px; flex-direction: row; justify-content: center; gap: 12px; }
+  .steps__sep { transform: rotate(90deg); justify-content: center; padding: 2px 0; }
+
+  .chain { gap: 8px 10px; margin-bottom: 36px; }
+  .chain__node { padding: 9px 20px; font-size: .95rem; letter-spacing: .06em; }
+}
+
+/* --- 新規要素の本文サイズ（PCは1024px以上の基準に合わせる） --- */
+@media (min-width: 1024px) {
+  .prob__card p     { font-size: .95rem; }
+  .merit__results li{ font-size: .95rem; }
+  .flow3__desc      { font-size: .95rem; }
+}
