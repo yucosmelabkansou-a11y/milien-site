@@ -3265,3 +3265,18 @@ textarea:focus-visible {
   .merit__results li{ font-size: .95rem; }
   .flow3__desc      { font-size: .95rem; }
 }
+
+/* --- プロフィールの締め（Messageセクション統合分） --- */
+.prof__msg {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+  font-size: 1rem;
+  line-height: 1.9;
+  letter-spacing: .03em;
+  color: var(--color-accent2);
+  font-weight: 500;
+}
+@media (max-width: 1023px) {
+  .prof__msg { font-size: .95rem; margin-top: 26px; padding-top: 20px; }
+}
