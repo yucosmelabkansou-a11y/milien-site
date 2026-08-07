@@ -4124,3 +4124,14 @@ textarea:focus-visible {
   .plan__meta--stack { flex-direction: row; gap: 14px; }
   .plan__meta-item { flex-direction: row; }
 }
+
+/* ============================================================================
+   2026-08-07 微調整
+   1024×768 で支援内容セクションを 2.0画面以内に収めるため、Positionセクションの
+   余白を計 40px 圧縮する（1,570px → 1,530px ＝ 1.99画面）。
+   スマホ側の指定（max-width:767px）を上書きしないよう min-width で限定する。
+   ============================================================================ */
+@media (min-width: 768px) {
+  .position { padding-top: 42px; padding-bottom: 38px; }   /* 56/56 → -14/-18 */
+  .position .sec-hd { margin-bottom: 24px; }               /* 32   → -8      */
+}
