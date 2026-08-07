@@ -1,22 +1,31 @@
-# Milien株式会社 コーポレートLP
+# Milien株式会社 コーポレートLP（2026-08-05 リニューアル作業コピー）
 
 化粧品の商品企画・開発支援（Milien株式会社）の公式サイトです。
-本番：https://www.milien.jp/ （Vercel配信）
+本番：https://www.milien.jp/ （Vercel配信 / GitHub `yucosmelabkansou-a11y/milien-site` の `main` から自動デプロイ）
+
+> **このディレクトリは本番リポジトリから切り離した作業コピーです。**
+> `.git` を削除してあるため、ここから誤って本番へ push されることはありません。
+> 本番反映は、確認完了後に本番リポジトリ側でブランチを切って行ってください。
 
 ---
 
 ## ファイル構成
 
 ```
-cosmetic-consulting-lp/
-├── index.html        # トップページ
+cosmetic-consulting-lp-refresh-20260805/
+├── index.html        # トップページ（9セクション）
+├── privacy/
+│   └── index.html    # プライバシーポリシー（新規）
 ├── css/
-│   └── style.css     # 全スタイル定義
+│   └── style.css     # 全スタイル定義（末尾に2026-08-05リニューアル分を追記）
 ├── js/
-│   └── main.js       # インタラクション（スクロール・アコーディオン・フォーム送信）
+│   └── main.js       # インタラクション（スクロール・アコーディオン・フォーム・CTAプリセット）
 ├── column/           # コラム記事
 │   ├── cosmetic-product-planning-3steps/
 │   └── cosmetic-development-consulting/
+├── images/
+│   ├── profile-400/800.jpg / .webp   # 代表写真
+│   └── ogp.png                       # OGP画像（新規・1200x630）
 ├── 404.html
 ├── robots.txt
 ├── sitemap.xml
@@ -25,35 +34,22 @@ cosmetic-consulting-lp/
 
 ---
 
-## ブラウザでの開き方
-
-`index.html` をダブルクリック、またはブラウザにドラッグ＆ドロップで表示できます。
-ローカルサーバーで確認する場合：
-
-```
-python3 -m http.server 4599
-```
-
----
-
 ## セクション構成（トップページ）
 
-| # | セクション | id |
-|---|---|---|
-| 1 | ファーストビュー | `#top` |
-| 2 | 支援対象となる企業 | `#target` |
-| 3 | 支援によって起こる変化（Before / After） | `#change` |
-| 4 | 主力サービス | `#service` |
-| 5 | Milienが支援できる理由 | `#strength` |
-| 6 | 代表プロフィール | `#profile` |
-| 7 | Message | `#message` |
-| 8 | 支援の進め方と対応範囲 | `#flow` |
-| 9 | 向いている企業・向いていないご依頼 | `#fit` |
-| 10 | よくあるご質問 | `#faq` |
-| 11 | 会社概要 | `#company` |
-| 12 | 相談するタイミング | `#timing` |
-| 13 | お問い合わせ | `#contact` |
-| 14 | コラム | `#column` |
+| # | セクション | id | 備考 |
+|---|---|---|---|
+| 1 | ファーストビュー | `#top` | メインコピーは従来どおり |
+| 2 | Milienが入る位置（図） | `#position` | 新規 |
+| 3 | 支援内容（相談軸A / B-1〜B-3 / 補足） | `#service` | 期間・料金・成果物を掲載 |
+| 4 | 支援後、手元に残るもの | `#deliverables` | 新規 |
+| 5 | Milienができる理由＋代表プロフィール | `#strength`（`#profile`） | 旧2セクションを統合 |
+| 6 | 支援の進め方・秘密保持・対応しない範囲 | `#flow` | 否定表現はここ1箇所に集約 |
+| 7 | 会社概要・よくあるご質問 | `#company`（`#faq`） | 旧2セクションを統合 |
+| 8 | お問い合わせ | `#contact` | 同意チェック追加 |
+| 9 | コラム | `#column` | |
+
+旧サイトから削除・統合したid：`#problem` `#merit` `#target` `#change` `#fit`
+`#faq` `#company` `#profile` は外部リンク互換のため id として維持しています。
 
 ---
 
@@ -65,58 +61,45 @@ python3 -m http.server 4599
 
 ```css
 :root {
-  --color-base:   #FDFAF7;   /* ベース（ミルキーベージュ） */
-  --color-base-2: #F8F2ED;
-  --color-base-3: #F2E8DF;
-  --color-main:   #D8A7B7;   /* メイン（ダスティローズ） */
-  --color-accent: #9D8AB3;   /* アクセント（ラベンダーモーブ） */
-  --color-text:   #3D3040;   /* 本文テキスト */
-  /* ... */
+  --color-base:   #FAF8F6;   /* ベース */
+  --color-base-2: #F2EFEC;   /* サブ背景 */
+  --color-main:   #B9A2A6;   /* ローズグレージュ */
+  --color-accent: #5B2F42;   /* ディーププラム（CTA・強調） */
+  --color-text:   #2A2529;   /* 本文 */
+  --color-border: #E2DCD9;   /* 罫線 */
 }
 ```
+
+CTAはディーププラムの単色です（グラデーションは廃止）。
 
 ### 主要な文言変更
 
 | 項目 | 場所 |
 |---|---|
-| ロゴ・タグライン | `index.html` → `.hdr__logo` / `.ftr__logo` |
+| ロゴ・タグライン | `index.html` → `.hdr__logo` / `.ftr__logo`（全ページで統一） |
 | ファーストビュー見出し | `index.html` → `.hero__title` |
-| 対象表記 | `index.html` → `.hero__label` |
-| 主力サービス | `index.html` → `.supp__card`（`#service`） |
-| プロフィール本文・経歴 | `index.html` → `.prof__desc` / `.prof__timeline` |
-| SEOタイトル・description | `index.html` → `<head>` 内 `<title>` / `<meta name="description">` |
-| 構造化データ | `index.html` → `<head>` 内 `application/ld+json`（Organization） |
+| サブコピー | `index.html` → `.hero__sub` |
+| 支援内容・期間・料金 | `index.html` → `.plan`（`#service`） |
+| 成果物 | `index.html` → `.dv__card`（`#deliverables`） |
+| 秘密保持 | `index.html` → `.nda`（`#flow`） |
+| 対応しない範囲 | `index.html` → `.scope-no`（`#flow`） |
+| SEOタイトル・description | `index.html` → `<head>` |
 
 ### CSSキャッシュについて
 
-`index.html` の `css/style.css?v=NN` と `js/main.js?v=NN` はキャッシュバスターです。
-**CSS・JSを変更したら必ず番号を上げてください。** 上げないとVercelのキャッシュで旧ファイルが配信される場合があります。
+`css/style.css?v=NN` と `js/main.js?v=NN` はキャッシュバスターです。
+**CSS・JSを変更したら必ず番号を上げてください。** 現在は `style.css?v=22` / `main.js?v=14` です。
 
 ---
 
 ## 問い合わせフォームについて
 
-**Formspree に接続済みで、実際に送信されます。**
+**Formspree に接続済みで、実際に送信されます。**（確認作業では送信しないでください）
 
-- 送信先：`https://formspree.io/f/mbdezpye`（`index.html` の `<form action>`）
-- 送信処理：`js/main.js` の `contactForm` submit イベント（`fetch` で非同期POST）
-- 必須項目：`name` / `company` / `email` / `message`
-- 送信成功時：フォームを隠し `#contactThanks` を表示
-- 送信失敗時：`#formError` のみ表示（通常時は `display:none`）
-
-送信される項目：`name` / `company` / `dept` / `email` / `url` / `industry` / `phase` / `support_type`（複数可） / `message`
-
----
-
-## 画像を追加する場合の推奨場所
-
-| 追加したい画像 | 推奨場所 |
-|---|---|
-| ヒーロービジュアル（商品写真等） | `.hero__visual` 内、CSS装飾カードと差し替え or 追加 |
-| プロフィール写真 | `.prof__av-in` を `<img>` タグで差し替え |
-| OGP画像 | `<head>` に `og:image` を追加（**現在未設定**） |
-
-画像ファイルは `images/` ディレクトリを作成して配置することを推奨します。
+- 送信先：`https://formspree.io/f/mbdezpye`
+- 必須項目：`name` / `company` / `email` / `message` / `privacy_agree`
+- `privacy_agree`：プライバシーポリシー同意チェック（2026-08-05 追加）
+- サービス別CTA（`data-preset`）をクリックすると、「相談したい支援」の該当チェックが自動でONになります
 
 ---
 
@@ -124,3 +107,5 @@ python3 -m http.server 4599
 
 - Chrome / Safari / Firefox / Edge（最新版）
 - スマートフォン：iOS Safari / Android Chrome
+
+確認済みブレークポイント：1440px / 1024px / 768px / 375px

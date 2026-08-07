@@ -178,13 +178,19 @@ if (form) {
     const company = form.querySelector('#company').value.trim();
     const email   = form.querySelector('#email').value.trim();
     const message = form.querySelector('#message').value.trim();
+    const agree   = form.querySelector('#privacyAgree');
 
     if (!name || !company || !email || !message) {
-      alert('お名前・会社名・ブランド名・メールアドレス・ご相談内容の詳細は必須項目です。');
+      alert('お名前・会社名・メールアドレス・ご相談内容の詳細は必須項目です。');
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       alert('正しいメールアドレスをご入力ください。');
+      return;
+    }
+    if (agree && !agree.checked) {
+      alert('プライバシーポリシーへの同意が必要です。');
+      agree.focus();
       return;
     }
 
@@ -214,3 +220,16 @@ if (form) {
     }
   });
 }
+
+/* ============================================
+   サービス別CTA → 「相談したい支援」をプリセット
+   （data-preset の値と一致するチェックボックスをONにする）
+   ============================================ */
+document.querySelectorAll('.plan__cta-btn[data-preset]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const want = btn.dataset.preset;
+    document.querySelectorAll('input[name="support_type"]').forEach(cb => {
+      if (cb.value === want) cb.checked = true;
+    });
+  });
+});

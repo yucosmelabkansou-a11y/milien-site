@@ -2,11 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.milien.jp/</loc>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.milien.jp/column/cosmetic-development-consulting/</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.milien.jp/column/cosmetic-product-planning-3steps/</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.milien.jp/privacy/</loc>
+    <priority>0.2</priority>
   </url>
 </urlset>
