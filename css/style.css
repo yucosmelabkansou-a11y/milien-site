@@ -4601,3 +4601,15 @@ textarea:focus-visible {
   .doc__paper { height: auto; }
   .doc__foot { margin-top: 11px; }
 }
+
+/* ============================================================================
+   最近の取り組み：未完成カードの公開制御
+   index.html の <section id="works" data-works="..."> を
+   draft → live に変えるだけで、日付・画像・URL未定のカードが非表示になる。
+   （「後日設定」の表記が本番に出ない状態にするための切り替え）
+   ============================================================================ */
+[data-works="live"] .work--draft { display: none; }
+[data-works="live"] .works {
+  grid-template-columns: minmax(0, 380px);
+  justify-content: center;
+}
