@@ -4613,3 +4613,150 @@ textarea:focus-visible {
   grid-template-columns: minmax(0, 380px);
   justify-content: center;
 }
+
+/* ============================================================================
+   2026-08-09 スマホの支援内容を段階表示へ
+   ・PC（768px以上）：details を常時展開し summary を隠す＝従来どおり全文表示
+   ・スマホ：既定で閉じ、「支援内容・成果物を見る」で展開
+   JavaScriptには依存しない（JS無効でも details はネイティブに開閉する）
+   ============================================================================ */
+.plan__lead {
+  font-size: .9rem;
+  line-height: 1.85;
+  color: var(--color-text-md);
+  margin: 0 0 18px;
+}
+.plan--a .plan__lead { margin-bottom: 22px; }
+
+/* 前のプランからの追加（スマホのみ表示。PCは支援内容の全文で足りるため隠す） */
+.plan__diff { display: none; }
+.plan__inc {
+  display: inline-block;
+  font-size: .74rem; font-weight: 700; letter-spacing: .03em;
+  color: var(--color-accent);
+  background: #EFE7EA;
+  border-radius: 2px;
+  padding: 4px 10px;
+  margin-bottom: 9px;
+}
+.plan__list--add li::before { background: var(--color-accent); }
+
+/* details 本体 */
+.plan__more { margin-top: 4px; }
+.plan__more-sum {
+  list-style: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  font-size: .86rem; font-weight: 700; letter-spacing: .02em;
+  color: var(--color-accent);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 13px 16px;
+  background: var(--color-base);
+  transition: background .2s;
+}
+.plan__more-sum::-webkit-details-marker { display: none; }
+.plan__more-sum::after {
+  content: '';
+  width: 8px; height: 8px; flex-shrink: 0;
+  border-right: 1.5px solid var(--color-accent);
+  border-bottom: 1.5px solid var(--color-accent);
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform .25s ease;
+}
+.plan__more[open] .plan__more-sum { background: var(--color-base-2); }
+.plan__more[open] .plan__more-sum::after { transform: translateY(2px) rotate(-135deg); }
+.plan__more-in { padding-top: 16px; }
+
+/* PC：常時展開・summaryなし＝従来表示 */
+@media (min-width: 768px) {
+  .plan__more { display: contents; }
+  .plan__more-sum { display: none; }
+  .plan__more-in { padding-top: 0; }
+  .plan__more::details-content { content-visibility: visible; display: contents; }
+  .plan--a .plan__lead { margin-bottom: 24px; }
+}
+
+/* スマホ：段階表示 */
+@media (max-width: 767px) {
+  .plan__diff {
+    display: block;
+    margin: 16px 0 18px;
+    padding: 14px 16px;
+    background: var(--color-base);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 3px 3px 0;
+  }
+  .plan__diff .plan__list { gap: 7px; }
+  .plan__lead { font-size: .87rem; margin-bottom: 14px; }
+  .plan__more-in .plan__lbl:first-child { margin-top: 0; }
+}
+
+/* ============================================================================
+   最近の取り組み：下書きカードは既定で非表示
+   確認時のみ data-works="preview" で表示する
+   ============================================================================ */
+.work--draft { display: none; }
+[data-works="preview"] .work--draft { display: flex; }
+.works { grid-template-columns: minmax(0, 380px); justify-content: center; }
+[data-works="preview"] .works { grid-template-columns: repeat(3, 1fr); justify-content: stretch; }
+@media (max-width: 1023px) {
+  .works, [data-works="preview"] .works { grid-template-columns: minmax(0, 420px); justify-content: center; }
+}
+
+/* ── スマホ：S4 の骨格を保ったまま、装飾と余白を圧縮（本文は削らない） ── */
+@media (max-width: 767px) {
+  .supp { padding-top: 68px; padding-bottom: 68px; }
+  .supp .sec-lead { margin-bottom: 24px; }
+
+  /* 英字サブタイトルはスマホでは省略（情報量ゼロの装飾） */
+  .plan__en { display: none; }
+
+  /* 期間目安：塗り箱をやめて1行のラベル表示に */
+  .plan__meta,
+  .plan__meta--stack {
+    background: none;
+    padding: 0;
+    margin: 0 0 14px;
+    gap: 8px;
+    align-items: baseline;
+  }
+  .plan__meta-lbl { font-size: .7rem; }
+  .plan__meta-val { font-size: .9rem; }
+
+  .plan { padding: 22px 18px; }
+  .plan--a { margin-bottom: 32px; }
+  .plan__hd { margin-bottom: 14px; }
+  .plan__hd--compact { margin-bottom: 12px; }
+  .plan__lbl { margin: 16px 0 8px; }
+  .plan__list { gap: 7px; }
+  .plan__cta { margin-top: 18px; }
+
+  .plan-group__hd { margin-bottom: 22px; }
+  .plan-group__lead { margin-top: 10px; }
+  .plan-group__grid { gap: 12px; }
+
+  .plan__diff { margin: 14px 0; padding: 12px 14px; }
+  .plan__inc { margin-bottom: 7px; }
+  .plan__more-sum { padding: 11px 14px; }
+
+  /* 補足プラン：見出しと説明を1ブロックに詰める */
+  .plan-sub { margin-top: 34px; padding-top: 26px; }
+  .plan-sub__hd { margin-bottom: 14px; }
+  .plan-sub__grid { gap: 10px; }
+  .plan-sub__item { padding: 14px 16px; }
+  .plan-sub__desc { margin-top: 3px; font-size: .8rem; line-height: 1.7; }
+
+  .supp .sec-note { margin-top: 20px; }
+}
+
+/* ── スマホ：S4を4画面以内へ（最終調整） ── */
+@media (max-width: 767px) {
+  .supp { padding-top: 58px; padding-bottom: 58px; }
+  .plan__lead { margin-bottom: 12px; }
+  .plan__diff { margin: 12px 0; }
+  .plan-group__grid { gap: 10px; }
+  .plan-sub { margin-top: 28px; padding-top: 22px; }
+  .plan-sub__grid { gap: 8px; }
+  .supp .sec-note { margin-top: 16px; }
+}
