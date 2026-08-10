@@ -4760,3 +4760,315 @@ textarea:focus-visible {
   .plan-sub__grid { gap: 8px; }
   .supp .sec-note { margin-top: 16px; }
 }
+
+/* ============================================================================
+   2026-08-10 セクション再構成
+   HERO(役割図を集約) → 課題 → Why Milien → 成果物+CTA → 支援内容・料金
+   → 支援事例 → 進め方・NDA → FAQ → 会社概要 → 問い合わせ → コラム
+   POSITIONセクション廃止／料金掲載／SPでも役割図を表示
+   ここより下が最終定義（同名セレクタは上書きされる）
+   ============================================================================ */
+
+/* ── 背景の交互配置（新しい並び順に合わせて再指定） ── */
+#issue        { background: var(--color-base-2); }
+#strength     { background: var(--color-base); }
+#deliverables { background: var(--color-base-2); }
+#service      { background: var(--color-base); }
+#works        { background: var(--color-base-2); }
+#flow         { background: var(--color-base); }
+#faq          { background: var(--color-base-2); }
+#company      { background: var(--color-base); }
+#column       { background: var(--color-base); }
+
+/* ============================================================
+   HERO — 役割図（旧 POSITION を集約）
+   PC：詳細版（整理の中身3項目つき）／SP：簡略版3ノード
+   ============================================================ */
+.hero__visual { display: block; height: auto; }
+.pos3__sw-sp  { display: none; }
+.pos3__list--hero {
+  margin: 10px 0 2px;
+  padding-left: 4px;
+}
+.pos3--mini .pos3__node--mil { line-height: 1.5; }
+
+/* タブレット以下：1カラム化し、図をCTAの直前へ差し込む
+   （旧実装は 1023px 以下で図を display:none にしていたが、
+     POSITIONセクション廃止により役割説明がここだけになったため常時表示する） */
+@media (max-width: 1023px) {
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    gap: 0;
+  }
+  .hero__copy   { display: contents; }
+  .hero__label  { order: 1; }
+  .hero__title  { order: 2; }
+  .hero__solve  { order: 3; }
+  .hero__visual { order: 4; display: block; height: auto; margin: 6px 0 24px; }
+  .hero__cta    { order: 5; }
+  .hero__desc   { order: 6; margin: 22px 0 0; }
+  .pos3--mini   { max-width: 100%; margin-left: 0; }
+}
+
+@media (max-width: 767px) {
+  /* SPは簡略版：整理の中身は畳み、3ノードだけを見せる */
+  .pos3__list--hero { display: none; }
+  .pos3__sw-pc { display: none; }
+  .pos3__sw-sp { display: inline; }
+  .pos3--mini .pos3__node { font-size: .82rem; padding: 11px 12px; }
+  .pos3--mini .pos3__arw  { height: 16px; }
+  .hero__visual { margin: 4px 0 20px; }
+  .hero__desc   { margin-top: 18px; font-size: .86rem; }
+}
+
+/* ============================================================
+   ISSUE — 「左／右」を使わず、状態ラベルで示す
+   ============================================================ */
+.pair__tag {
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.5;
+  color: var(--color-accent);
+  background: #EFE7EA;
+  border-radius: 2px;
+  padding: 2px 8px;
+  margin-right: 9px;
+  vertical-align: 2px;
+  white-space: nowrap;
+}
+.pair__tag--now {
+  color: var(--color-text-lt);
+  background: var(--color-base-3);
+}
+
+/* ============================================================
+   中間CTA（成果物直後／支援内容・料金の末尾）
+   ============================================================ */
+.mid-cta {
+  max-width: 760px;
+  margin: 56px auto 0;
+  padding: 34px 36px;
+  text-align: center;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+.mid-cta--tint {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin-top: 44px;
+}
+.mid-cta__hd {
+  font-size: 1.06rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+.mid-cta__desc {
+  font-size: .89rem;
+  line-height: 1.95;
+  color: var(--color-text-md);
+  margin-bottom: 24px;
+}
+.mid-cta__btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  .mid-cta { margin-top: 36px; padding: 24px 18px; }
+  .mid-cta--tint { margin-top: 30px; padding: 0; }
+  .mid-cta__hd { font-size: .98rem; }
+  .mid-cta__desc { font-size: .86rem; margin-bottom: 18px; }
+  .mid-cta__btns { flex-direction: column; gap: 10px; }
+  .mid-cta__btns .btn { width: 100%; }
+}
+
+/* ============================================================
+   SERVICE & PRICE
+   ============================================================ */
+/* 相談軸バッジ廃止に伴う見出し調整 */
+.plan--a .plan__hd { margin-bottom: 14px; }
+.plan-group__lead {
+  max-width: 700px;
+  margin: 0 auto 28px;
+  text-align: center;
+  font-size: .92rem;
+  line-height: 1.9;
+  color: var(--color-text-md);
+}
+/* 料金は期間より先に、強い階層で見せる */
+.plan__meta--stack { gap: 8px 30px; }
+.plan--a .plan__meta--stack { margin-bottom: 20px; }
+
+/* 共通事項（各プランからの重複を集約） */
+.incl {
+  max-width: 860px;
+  margin: 44px auto 0;
+  padding: 22px 28px;
+  background: var(--color-base-2);
+  border-radius: 4px;
+}
+.incl__hd {
+  font-size: .86rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+.incl__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px 24px;
+}
+.incl__list li {
+  position: relative;
+  padding-left: 17px;
+  font-size: .86rem;
+  line-height: 1.8;
+  color: var(--color-text-md);
+}
+.incl__list li::before {
+  content: '';
+  position: absolute;
+  left: 1px; top: .74em;
+  width: 8px; height: 1px;
+  background: var(--color-main);
+}
+
+/* サブサービス：1枚構成 */
+.plan-sub__grid--1 { grid-template-columns: minmax(0, 420px); justify-content: center; }
+.plan-sub__note {
+  margin-top: 14px;
+  text-align: center;
+  font-size: .82rem;
+  line-height: 1.8;
+  color: var(--color-text-lt);
+}
+
+/* 料金の注記 */
+.price-note {
+  max-width: 860px;
+  margin: 32px auto 0;
+  padding: 22px 28px;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 4px 4px 0;
+  background: var(--color-white);
+}
+.price-note__list { display: grid; gap: 9px; }
+.price-note__list li {
+  position: relative;
+  padding-left: 17px;
+  font-size: .86rem;
+  line-height: 1.85;
+  color: var(--color-text-md);
+}
+.price-note__list li::before {
+  content: '';
+  position: absolute;
+  left: 1px; top: .78em;
+  width: 8px; height: 1px;
+  background: var(--color-accent);
+}
+.price-note__list strong { color: var(--color-text); font-weight: 700; }
+
+/* 対応しない範囲：支援内容セクション末尾へ移設 */
+#service .scope-no { max-width: 860px; margin: 32px auto 0; }
+
+@media (max-width: 767px) {
+  .incl { margin-top: 30px; padding: 18px 16px; }
+  .incl__list { grid-template-columns: 1fr; gap: 6px; }
+  .price-note { margin-top: 22px; padding: 18px 16px; }
+  .price-note__list li { font-size: .84rem; }
+  #service .scope-no { margin-top: 22px; padding: 20px 16px; }
+  .scope-no__list { grid-template-columns: 1fr; }
+  .plan-group__lead { margin-bottom: 18px; }
+  .plan-sub__note { margin-top: 10px; font-size: .8rem; }
+  /* 料金と期間は常時表示・並列。詳細のみアコーディオン */
+  .plan__meta,
+  .plan__meta--stack { gap: 6px 24px; margin: 0 0 12px; }
+  .plan__meta-val--price { font-size: 1.05rem; }
+}
+
+/* ============================================================
+   DELIVERABLES — スマホ幅で紙面の中身を読めるサイズへ
+   （横スクロールは使わず、フォントと行間を上げて再配置）
+   ============================================================ */
+@media (max-width: 767px) {
+  .doc__paper { height: auto; }
+  .doc__body  { padding: 18px 18px 16px; }
+  .doc__stamp { font-size: .66rem; }
+  .doc__ttl   { font-size: .96rem; margin-bottom: 12px; }
+  .doc__rows  { gap: 10px; }
+  .doc__rows > div { grid-template-columns: 1fr; gap: 2px; }
+  .doc__rows dt { font-size: .74rem; }
+  .doc__rows dd { font-size: .82rem; line-height: 1.7; }
+  .doc__tbl { font-size: .78rem; margin-bottom: 14px; }
+  .doc__tbl th, .doc__tbl td { padding: 6px 8px; }
+  .doc__map { height: 104px; }
+  .doc__map-ax { font-size: .64rem; }
+  .doc__blk { margin-bottom: 12px; }
+  .doc__blk-lbl { font-size: .74rem; }
+  .doc__blk p { font-size: .82rem; line-height: 1.7; }
+  .doc__cap b { font-size: .98rem; }
+  .doc__cap span:not(.doc__no) { font-size: .85rem; }
+}
+
+/* ============================================================
+   FAQ / COMPANY — 独立セクション化に伴う調整
+   ============================================================ */
+.faq-sec .faq__wrap { margin: 0 auto; }
+.company__table { border-bottom: 1px solid var(--color-border); }
+
+/* ============================================================
+   CONTACT — 入力負荷を下げる補助文とNDA表記
+   ============================================================ */
+.form__help {
+  margin: -4px 0 8px;
+  font-size: .8rem;
+  line-height: 1.75;
+  color: var(--color-text-lt);
+}
+.form__ta { min-height: 0; }
+.form__nda {
+  margin-top: 18px;
+  padding: 13px 16px;
+  background: var(--color-base-2);
+  border-radius: 4px;
+  font-size: .82rem;
+  line-height: 1.8;
+  color: var(--color-text-md);
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .form__help { font-size: .78rem; }
+  .form__nda  { font-size: .8rem; text-align: left; }
+}
+
+/* PC：details を display:contents で展開しているため、
+   .plan__more-in の先頭見出しが :first-child 扱いになり margin-top が消えていた。
+   直前のリストと「支援内容」見出しが密着する現象の修正。 */
+@media (min-width: 768px) {
+  .plan--b .plan__more-in { margin-top: 22px; }
+  .plan--b .plan__more-in .plan__lbl:first-child { margin-top: 0; }
+}
+
+/* スマホ：成果物サンプルを可読サイズに上げたぶん、周辺の余白を締めて縦を戻す */
+@media (max-width: 767px) {
+  .deliv-sec { padding-top: 56px; padding-bottom: 56px; }
+  .docs { gap: 22px; }
+  .doc__cap { margin-top: 12px; }
+  .docs__disc { margin-top: 20px; }
+  .deliv-sec .sec-note { margin-top: 14px; }
+}

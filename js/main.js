@@ -126,7 +126,8 @@ document.querySelectorAll('.tabs').forEach(tabs => {
 
 /* ============================================
    FLOATING CTA
-   （Contactセクションが見えている間は非表示＝フォーム入力の邪魔をしない）
+   （Contactセクションが見えている間だけ非表示＝フォーム入力の邪魔をしない。
+   Contactの後ろにコラムが続く構成のため、通り過ぎたら再表示する）
    ============================================ */
 const floatCta = document.getElementById('floatCta');
 const contactSec = document.getElementById('contact');
@@ -134,10 +135,12 @@ const contactSec = document.getElementById('contact');
 if (floatCta) {
   window.addEventListener('scroll', () => {
     const scrolledEnough = window.scrollY > window.innerHeight * 0.6;
-    const nearContact = contactSec
-      ? contactSec.getBoundingClientRect().top < window.innerHeight * 0.9
-      : false;
-    floatCta.classList.toggle('show', scrolledEnough && !nearContact);
+    let contactVisible = false;
+    if (contactSec) {
+      const r = contactSec.getBoundingClientRect();
+      contactVisible = r.top < window.innerHeight * 0.9 && r.bottom > 0;
+    }
+    floatCta.classList.toggle('show', scrolledEnough && !contactVisible);
   }, { passive: true });
 }
 
@@ -181,7 +184,7 @@ if (form) {
     const agree   = form.querySelector('#privacyAgree');
 
     if (!name || !company || !email || !message) {
-      alert('お名前・会社名・メールアドレス・ご相談内容の詳細は必須項目です。');
+      alert('お名前・会社名・メールアドレス・いま困っていることは必須項目です。');
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
