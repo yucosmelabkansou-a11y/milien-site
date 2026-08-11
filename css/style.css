@@ -5072,3 +5072,18 @@ textarea:focus-visible {
   .docs__disc { margin-top: 20px; }
   .deliv-sec .sec-note { margin-top: 14px; }
 }
+
+/* ============================================================================
+   2026-08-11 料金非掲載への切り替え
+   ・料金メタを廃止し、比較軸を「対象となる状態／支援範囲／期間／成果物」に統一
+   ・成果物をアコーディオンの外へ出し、開かずに違いが分かる状態にする
+   ============================================================================ */
+.plan__deliv { margin-top: 18px; margin-bottom: 4px; }
+.plan--a .plan__deliv { margin-top: 24px; margin-bottom: 0; }
+.plan__deliv-lbl { color: var(--color-accent); }
+.plan-sub__note { margin-top: 12px; }
+
+@media (max-width: 767px) {
+  .plan__deliv { margin-top: 14px; padding: 13px 15px; }
+  .plan--a .plan__deliv { margin-top: 16px; }
+}
