@@ -5087,3 +5087,279 @@ textarea:focus-visible {
   .plan__deliv { margin-top: 14px; padding: 13px 15px; }
   .plan--a .plan__deliv { margin-top: 16px; }
 }
+
+/* ============================================================================
+   2026-08-11 支援内容を3分類へ再編（顧客フィードバック反映）
+   ・中心価値を「資料を作る支援」から「一緒に考え、判断と優先順位を決める支援」へ
+   ・支援内容 → 成果物サンプル の順に入れ替え
+   ・追従CTAを本文に重ならない配置へ
+   ・アクセシビリティ（reduced-motion / focus / メニュー）
+   ============================================================================ */
+
+/* ── 背景の交互配置（並び替え後） ── */
+#issue        { background: var(--color-base-2); }
+#strength     { background: var(--color-base); }
+#service      { background: var(--color-base-2); }
+#deliverables { background: var(--color-base); }
+#works        { background: var(--color-base-2); }
+#flow         { background: var(--color-base); }
+#faq          { background: var(--color-base-2); }
+#company      { background: var(--color-base); }
+#column       { background: var(--color-base); }
+
+/* ============================================================
+   ISSUE — 縦を詰める（PC・SPとも）
+   ============================================================ */
+.issue { padding-top: 56px; padding-bottom: 56px; }
+.issue .sec-hd { margin-bottom: 26px; }
+.issue .sec-lead { margin-bottom: 20px; }
+.pairs { padding: 2px 22px; }
+.pair { padding: 12px 0; }
+.pair__next { padding: 11px 14px; }
+
+@media (max-width: 767px) {
+  .issue { padding-top: 40px; padding-bottom: 40px; }
+  .issue .sec-hd { margin-bottom: 18px; }
+  .issue .sec-lead { margin-bottom: 14px; }
+  .pairs { padding: 2px 14px; }
+  .pair { padding: 11px 0; }
+  .pair__arw { margin: 7px auto 5px; height: 14px; }
+  .pair__next { padding: 9px 12px; }
+  .pair__ic { width: 32px; height: 32px; }
+  .pair__ic svg { width: 16px; height: 16px; }
+}
+
+/* ============================================================
+   WHY MILIEN — 補足の一文
+   ============================================================ */
+.why__note {
+  margin-top: 4px;
+  padding: 14px 18px;
+  background: var(--color-base-2);
+  border-radius: 4px;
+  font-size: .85rem;
+  line-height: 1.85;
+  color: var(--color-text-md);
+}
+@media (max-width: 767px) {
+  .why__note { padding: 12px 14px; font-size: .83rem; }
+}
+
+/* ============================================================
+   SERVICE — 3分類カード
+   向いている状態／進め方／期間／主に残るもの は常時表示、
+   詳細な支援範囲のみアコーディオン
+   ============================================================ */
+.svc3 { display: flex; flex-direction: column; }
+.svc3 .plan__hd--compact { margin-bottom: 16px; }
+.svc3__rows { display: grid; gap: 13px; margin-bottom: 16px; }
+.svc3__row { display: grid; gap: 4px; }
+.svc3__row dt {
+  font-size: .73rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  color: var(--color-accent);
+}
+.svc3__row dd {
+  font-size: .86rem;
+  line-height: 1.85;
+  color: var(--color-text-md);
+}
+.svc3__row--deliv {
+  background: var(--color-base-2);
+  border-radius: 4px;
+  padding: 12px 14px;
+  gap: 5px;
+}
+.svc3__row--deliv dd { color: var(--color-text); }
+.svc3__sub {
+  display: block;
+  font-size: .76rem;
+  color: var(--color-text-lt);
+  margin-top: 1px;
+}
+.svc3 .plan__cta { margin-top: auto; padding-top: 18px; }
+
+/* 含まないもの */
+.plan__lbl--no { color: var(--color-text-lt); }
+.plan__list--no li { color: var(--color-text-lt); }
+.plan__list--no li::before { background: var(--color-text-lt); }
+.plan__no-note {
+  margin-top: 10px;
+  font-size: .8rem;
+  line-height: 1.8;
+  color: var(--color-text-lt);
+}
+
+/* スポットレビュー（主力カードにしない補足） */
+.svc3__spot {
+  max-width: 860px;
+  margin: 30px auto 0;
+  padding: 18px 24px;
+  background: var(--color-white);
+  border: 1px dashed var(--color-border);
+  border-radius: 4px;
+  font-size: .87rem;
+  line-height: 1.9;
+  color: var(--color-text-md);
+  text-align: center;
+}
+.svc3__spot strong { color: var(--color-accent); font-weight: 700; }
+
+/* タブレット以下は1カラム */
+@media (max-width: 1023px) {
+  .plan-group__grid {
+    grid-template-columns: minmax(0, 620px);
+    justify-content: center;
+    gap: 18px;
+  }
+}
+@media (max-width: 767px) {
+  .svc3__rows { gap: 11px; margin-bottom: 13px; }
+  .svc3__row dd { font-size: .85rem; }
+  .svc3__row--deliv { padding: 11px 13px; }
+  .svc3 .plan__cta { padding-top: 14px; }
+  .svc3__spot { margin-top: 22px; padding: 15px 16px; font-size: .84rem; text-align: left; }
+}
+
+/* ============================================================
+   DELIVERABLES — 注記を3点の箇条書きへ
+   ============================================================ */
+.docs__disc { text-align: left; }
+.docs__disc-list { display: grid; gap: 9px; }
+.docs__disc-list li {
+  position: relative;
+  padding-left: 17px;
+  font-size: .85rem;
+  line-height: 1.85;
+  color: var(--color-text-md);
+}
+.docs__disc-list li::before {
+  content: '';
+  position: absolute;
+  left: 1px; top: .78em;
+  width: 8px; height: 1px;
+  background: var(--color-accent);
+}
+.docs__disc-list strong { color: var(--color-text); font-weight: 700; }
+
+/* ============================================================
+   FLOW — 初回打ち合わせで確認すること
+   ============================================================ */
+.checkbox-note {
+  max-width: 860px;
+  margin: 36px auto 0;
+  padding: 22px 28px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+.checkbox-note__hd {
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--color-text);
+  margin-bottom: 13px;
+}
+.checkbox-note__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px 24px;
+}
+.checkbox-note__list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: .87rem;
+  line-height: 1.8;
+  color: var(--color-text-md);
+}
+.checkbox-note__list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: .3em;
+  width: 14px; height: 14px;
+  border: 1px solid var(--color-main);
+  border-radius: 2px;
+}
+#flow .nda { margin-top: 32px; }
+@media (max-width: 767px) {
+  .checkbox-note { margin-top: 26px; padding: 18px 16px; }
+  .checkbox-note__list { grid-template-columns: 1fr; gap: 7px; }
+}
+
+/* ============================================================
+   追従CTA — 本文・表・カードの可読領域を隠さない
+   ============================================================ */
+/* 1200px以上：本文幅(1100px)の外側に収まる右端タブ */
+@media (min-width: 1200px) {
+  .float-cta {
+    top: 50%;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding: 26px 13px;
+    border-radius: 6px 0 0 6px;
+    font-size: .82rem;
+    letter-spacing: .14em;
+    transform: translateY(-50%) translateX(10px);
+    box-shadow: rgba(91, 47, 66, .22) -4px 0 20px;
+  }
+  .float-cta.show  { transform: translateY(-50%) translateX(0); }
+  .float-cta:hover { transform: translateY(-50%) translateX(-3px); box-shadow: rgba(91,47,66,.3) -6px 0 26px; }
+}
+
+/* 1199px以下：下部バー。本文の末尾が隠れないよう同等以上の余白を確保 */
+@media (max-width: 1199px) {
+  .float-cta {
+    left: 0; right: 0; bottom: 0; top: auto;
+    text-align: center;
+    border-radius: 0;
+    padding: 15px 16px;
+    padding-bottom: calc(15px + env(safe-area-inset-bottom));
+    font-size: .92rem;
+    letter-spacing: .06em;
+    transform: translateY(12px);
+    box-shadow: rgba(92, 68, 56, .18) 0 -4px 20px;
+  }
+  .float-cta.show  { transform: translateY(0); }
+  .float-cta:hover { transform: translateY(0); }
+  body { padding-bottom: calc(58px + env(safe-area-inset-bottom)); }
+}
+
+/* ============================================================
+   アクセシビリティ
+   ============================================================ */
+/* メニュー表示中は背景をスクロールさせない */
+body.nav-open { overflow: hidden; }
+
+/* キーボード操作時のフォーカス表示を消さない */
+.btn:focus-visible,
+.faq__q:focus-visible,
+.hdr__burger:focus-visible,
+.plan__more-sum:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* 動きを減らす設定では、HERO・各セクションを最初から表示 */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.d1, .reveal.d2, .reveal.d3, .reveal.d4,
+  .hero-anim {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    transition-delay: 0s !important;
+  }
+  .float-cta,
+  .float-cta.show,
+  .float-cta:hover { transition: none !important; }
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

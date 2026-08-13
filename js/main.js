@@ -4,7 +4,12 @@
    旧実装の window.load 待ちは、描画済みのヒーローを一度隠してから
    再表示するため、LCP が load イベントまで遅延していた）
    ============================================ */
+/* 動きを減らす設定（prefers-reduced-motion）では、
+   HERO も各セクションも最初から表示する */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 (() => {
+  if (reduceMotion) return;
   const heroEls = document.querySelectorAll('.hero-anim');
   const delays = [0, 100, 200, 320, 460, 620];
   heroEls.forEach((el, i) => {
@@ -34,23 +39,39 @@ window.addEventListener('scroll', () => {
 const burger = document.getElementById('burger');
 const hdrNav = document.getElementById('hdrNav');
 
-burger.addEventListener('click', () => {
-  const open = hdrNav.classList.toggle('open');
+function setNav(open) {
+  hdrNav.classList.toggle('open', open);
   burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', String(open));
   burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  // メニュー表示中は背景をスクロールさせない
+  document.body.classList.toggle('nav-open', open);
+}
+
+burger.addEventListener('click', () => {
+  setNav(!hdrNav.classList.contains('open'));
 });
 
 hdrNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    hdrNav.classList.remove('open');
-    burger.classList.remove('open');
-  });
+  a.addEventListener('click', () => setNav(false));
+});
+
+// Esc でメニューを閉じる
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && hdrNav.classList.contains('open')) {
+    setNav(false);
+    burger.focus();
+  }
 });
 
 /* ============================================
    REVEAL on scroll (IntersectionObserver)
    ============================================ */
 const revealEls = document.querySelectorAll('.reveal');
+
+if (reduceMotion) {
+  revealEls.forEach(el => el.classList.add('in'));
+}
 
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -72,7 +93,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (!target) return;
     e.preventDefault();
     const top = target.getBoundingClientRect().top + window.scrollY - hdr.offsetHeight - 16;
-    window.scrollTo({ top, behavior: 'smooth' });
+    window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
   });
 });
 
