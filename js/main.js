@@ -34,16 +34,20 @@ window.addEventListener('scroll', () => {
 const burger = document.getElementById('burger');
 const hdrNav = document.getElementById('hdrNav');
 
-burger.addEventListener('click', () => {
-  const open = hdrNav.classList.toggle('open');
+function setNav(open) {
+  hdrNav.classList.toggle('open', open);
   burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', String(open));
   burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+}
+
+burger.addEventListener('click', () => {
+  setNav(!hdrNav.classList.contains('open'));
 });
 
 hdrNav.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
-    hdrNav.classList.remove('open');
-    burger.classList.remove('open');
+    setNav(false);
   });
 });
 
@@ -68,7 +72,9 @@ revealEls.forEach(el => revealObs.observe(el));
    ============================================ */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
     const top = target.getBoundingClientRect().top + window.scrollY - hdr.offsetHeight - 16;
@@ -175,13 +181,13 @@ if (form) {
     e.preventDefault();
 
     const name    = form.querySelector('#name').value.trim();
-    const company = form.querySelector('#company').value.trim();
+    const company = form.querySelector('#contact-company').value.trim();
     const email   = form.querySelector('#email').value.trim();
     const message = form.querySelector('#message').value.trim();
     const agree   = form.querySelector('#privacyAgree');
 
     if (!name || !company || !email || !message) {
-      alert('お名前・会社名・メールアドレス・ご相談内容の詳細は必須項目です。');
+      alert('お名前・会社名・メールアドレス・商品について、いま困っていることは必須項目です。');
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
