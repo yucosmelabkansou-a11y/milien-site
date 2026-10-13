@@ -187,7 +187,7 @@ if (form) {
     const agree   = form.querySelector('#privacyAgree');
 
     if (!name || !company || !email || !message) {
-      alert('お名前・会社名・メールアドレス・商品について、いま困っていることは必須項目です。');
+      alert('お名前・会社名・メールアドレス・ご相談内容は必須項目です。');
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
