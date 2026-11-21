@@ -4847,3 +4847,19 @@ textarea:focus-visible {
   .flow-needs__list { grid-template-columns: 1fr; gap: 6px; }
   .why__note { padding: 16px 18px; font-size: .84rem; }
 }
+
+
+/* ── 記事内の中盤案内（柱記事1：ボタンなしの短い導線） ── */
+.art-note {
+  background: var(--color-base-2);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 22px 26px;
+  margin: 36px 0;
+}
+.art-note p { margin-bottom: 10px; }
+.art-note p:last-child { margin-bottom: 0; }
+.art-note__ttl { font-weight: 700; color: var(--color-text); }
+.art-note__link { font-size: .85rem; }
+.art-note__link a { color: var(--color-accent); text-decoration: underline; }
+#consult { scroll-margin-top: calc(var(--hdr-h) + 24px); }
