@@ -4863,3 +4863,11 @@ textarea:focus-visible {
 .art-note__link { font-size: .85rem; }
 .art-note__link a { color: var(--color-accent); text-decoration: underline; }
 #consult { scroll-margin-top: calc(var(--hdr-h) + 24px); }
+
+/* ── 2026-11-26 最近の取り組み：公開カード2件をPCで横並びにする ── */
+@media (min-width: 1024px) {
+  [data-works="live"] .works {
+    grid-template-columns: repeat(2, minmax(0, 380px));
+    align-items: stretch;
+  }
+}
